@@ -1,3 +1,4 @@
+<div align="center">
 
 <picture>
   <source
@@ -9,8 +10,42 @@
     srcset="https://raw.githubusercontent.com/krwg/krwg/output/github-contribution-grid-snake.svg"
   />
   <img
-    alt="Contribution snake eating my commits"
+    alt="Contribution Snake"
     src="https://raw.githubusercontent.com/krwg/krwg/output/github-contribution-grid-snake.svg"
+    width="100%"
   />
 </picture>
 
+<br><br>
+
+</div>
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top">
+
+<img
+  src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=12&duration=2000&pause=800&color=00FF41&background=00000000&center=false&vCenter=true&multiline=true&repeat=true&width=480&height=380&lines=krwg%40node%3A~%24+systemctl+start+mesh-core;%5B++++OK++++%5D+signed+artifact+verification;%5B++++OK++++%5D+mesh+trust+propagation;%5B++++OK++++%5D+decentralized+distribution;%5B++++OK++++%5D+runtime+integrity+checks;%5B++++OK++++%5D+cryptographic+build+identity;%5B++++OK++++%5D+low-level+infrastructure;%5B++++OK++++%5D+experimental+protocol+design;%5B++++OK++++%5D+deterministic+release+pipeline;%5B++++OK++++%5D+secure+desktop+tooling;%5B++++OK++++%5D+BLIP+neural+image+captioning+loaded;%5B++++OK++++%5D+Cultiva+agriculture+monitoring+active;%5B++++OK++++%5D+FileStorage+distributed+shard+mount;%5B++++OK++++%5D+Tiver+temporal+event+engine+running;%5B++++OK++++%5D+JustCalc+deterministic+math+core;%5B++++OK++++%5D+SpotiFLACNeo+audio+pipeline+ready;%5B++READY+++%5D+trust+level+verified;%5B++READY+++%5D+all+systems+nominal"
+  alt="Terminal System Boot"
+/>
+
+</td>
+<td width="50%" valign="top" align="center">
+
+<br>
+
+<img
+  src="https://github-readme-streak-stats.herokuapp.com?user=krwg&theme=black-ice&hide_border=true&ring=00ff41&fire=00ff41&currStreakLabel=00ff41"
+  alt="GitHub Streak"
+/>
+
+<br><br>
+
+<img
+  src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&theme=black-ice&hide_border=true&title_color=00ff41&text_color=ffffff&layout=compact&langs_count=8"
+  alt="Top Languages"
+/>
+
+</td>
+</tr>
+</table>
