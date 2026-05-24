@@ -42,8 +42,8 @@
 <br><br>
 
 <img
-  src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&theme=black-ice&hide_border=true&title_color=00ff41&text_color=ffffff&layout=compact&langs_count=8"
-  alt="Top Languages"
+  src="https://github-readme-activity-graph.vercel.app/graph?username=krwg&theme=github-compact&hide_border=true&area=true&color=00ff41&line=00ff41&point=ffffff"
+  alt="Contribution Graph"
 />
 
 </td>
