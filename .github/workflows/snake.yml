@@ -25,10 +25,26 @@ jobs:
         with:
           github_user_name: krwg
           outputs: |
-            dist/github-contribution-grid-snake.svg?palette=#c8a96e,#b08d4f,#967530,#7d5e1b,#634500
-            dist/github-contribution-grid-snake-dark.svg?palette=#c8a96e,#b08d4f,#967530,#7d5e1b,#634500
+            dist/github-contribution-grid-snake.svg?palette=github
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Replace colors in SVG (light)
+        run: |
+          sed -i 's/#ebedf0/#0d1117/g' dist/github-contribution-grid-snake.svg
+          sed -i 's/#9be9a8/#c8a96e/g' dist/github-contribution-grid-snake.svg
+          sed -i 's/#40c463/#b08d4f/g' dist/github-contribution-grid-snake.svg
+          sed -i 's/#30a14e/#967530/g' dist/github-contribution-grid-snake.svg
+          sed -i 's/#216e39/#7d5e1b/g' dist/github-contribution-grid-snake.svg
+
+      - name: Replace colors in SVG (dark)
+        run: |
+          sed -i 's/#161b22/#0d1117/g' dist/github-contribution-grid-snake-dark.svg
+          sed -i 's/#0e4429/#c8a96e/g' dist/github-contribution-grid-snake-dark.svg
+          sed -i 's/#006d32/#b08d4f/g' dist/github-contribution-grid-snake-dark.svg
+          sed -i 's/#26a641/#967530/g' dist/github-contribution-grid-snake-dark.svg
+          sed -i 's/#39d353/#7d5e1b/g' dist/github-contribution-grid-snake-dark.svg
 
       - name: Push SVGs to branch output
         uses: peaceiris/actions-gh-pages@v4
