@@ -25,8 +25,8 @@ jobs:
         with:
           github_user_name: krwg
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.svg?palette=#c8a96e,#b08d4f,#967530,#7d5e1b,#634500
+            dist/github-contribution-grid-snake-dark.svg?palette=#c8a96e,#b08d4f,#967530,#7d5e1b,#634500
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
