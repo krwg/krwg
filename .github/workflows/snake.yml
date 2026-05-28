@@ -32,19 +32,53 @@ jobs:
 
       - name: Replace colors in SVG (light)
         run: |
-          sed -i 's/#ebedf0/#0d1117/g' dist/github-contribution-grid-snake.svg
-          sed -i 's/#9be9a8/#c8a96e/g' dist/github-contribution-grid-snake.svg
-          sed -i 's/#40c463/#b08d4f/g' dist/github-contribution-grid-snake.svg
-          sed -i 's/#30a14e/#967530/g' dist/github-contribution-grid-snake.svg
-          sed -i 's/#216e39/#7d5e1b/g' dist/github-contribution-grid-snake.svg
+          python3 << 'EOF'
+          import re
+
+          with open('dist/github-contribution-grid-snake.svg', 'r') as f:
+              content = f.read()
+
+
+          content = re.sub(r'#ebedf0\b', '#0d1117', content)
+          content = re.sub(r'#c6e48b\b', '#c8a96e', content)
+          content = re.sub(r'#7bc96f\b', '#b08d4f', content)
+          content = re.sub(r'#239a3b\b', '#967530', content)
+          content = re.sub(r'#196127\b', '#7d5e1b', content)
+
+          content = re.sub(r'#9be9a8\b', '#c8a96e', content)
+          content = re.sub(r'#40c463\b', '#b08d4f', content)
+          content = re.sub(r'#30a14e\b', '#967530', content)
+          content = re.sub(r'#216e39\b', '#7d5e1b', content)
+
+
+          with open('dist/github-contribution-grid-snake.svg', 'w') as f:
+              f.write(content)
+          EOF
 
       - name: Replace colors in SVG (dark)
         run: |
-          sed -i 's/#161b22/#0d1117/g' dist/github-contribution-grid-snake-dark.svg
-          sed -i 's/#0e4429/#c8a96e/g' dist/github-contribution-grid-snake-dark.svg
-          sed -i 's/#006d32/#b08d4f/g' dist/github-contribution-grid-snake-dark.svg
-          sed -i 's/#26a641/#967530/g' dist/github-contribution-grid-snake-dark.svg
-          sed -i 's/#39d353/#7d5e1b/g' dist/github-contribution-grid-snake-dark.svg
+          python3 << 'EOF'
+          import re
+
+          with open('dist/github-contribution-grid-snake-dark.svg', 'r') as f:
+              content = f.read()
+
+
+          content = re.sub(r'#161b22\b', '#0d1117', content)
+          content = re.sub(r'#0e4429\b', '#c8a96e', content)
+          content = re.sub(r'#006d32\b', '#b08d4f', content)
+          content = re.sub(r'#26a641\b', '#967530', content)
+          content = re.sub(r'#39d353\b', '#7d5e1b', content)
+
+
+          content = re.sub(r'#3fb950\b', '#c8a96e', content)
+          content = re.sub(r'#2ea043\b', '#b08d4f', content)
+          content = re.sub(r'#238636\b', '#967530', content)
+          content = re.sub(r'#196c2e\b', '#7d5e1b', content)
+
+          with open('dist/github-contribution-grid-snake-dark.svg', 'w') as f:
+              f.write(content)
+          EOF
 
       - name: Push SVGs to branch output
         uses: peaceiris/actions-gh-pages@v4
