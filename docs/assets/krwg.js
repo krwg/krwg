@@ -59,12 +59,24 @@
       'footer.spring': 'Весна', 'footer.summer': 'Лето',
       'footer.autumn': 'Осень', 'footer.winter': 'Зима',
       'bio.title': 'Биография',
+      'bio.p1': 'Начал с желания создать свою социальную сеть — <strong>Tiver</strong>, 2021 год. Шесть месяцев веб-разработки с другом, первая версия на чистом HTML/CSS/JS. Это был не просто проект, а точка невозврата: я понял, что код — это способ материализовать идеи.',
+      'bio.p2': 'Дальше — Python, куча пет-проектов, <strong>JKeep</strong> на Tkinter, кастомные темы для Telegram, погружение в сети и виртуальные машины. Учёба и обязательства отодвинули хобби на полку, но не убили.',
+      'bio.p3': 'Апрель 2026 — всё изменилось. <strong>Cultiva</strong>, изучение JS и Electron, затем экосистема <strong>Floke</strong>. Сейчас — Rust, Tauri, RAG, SQL, TypeScript, Ollama, устройство LLM. Каждый день — новый слой.',
+      'bio.t1': 'Первый проект <a href="https://github.com/krwg/Tiver" target="_blank" rel="noopener">Tiver</a> — социальная сеть с другом. Шесть месяцев веб-разработки.',
+      'bio.t2': 'Telegram-канал krwg, <strong>JKeep</strong> на Python + Tkinter, кастомные темы для Telegram, изучение сетей и VM.',
+      'bio.t3': 'Возвращение. <strong>Cultiva</strong>, экосистема <strong>Floke Studio</strong>, Rust, Tauri, локальный AI, RAG.',
       'studio.blockTitle': 'Студия',
       'studio.more': 'Подробнее',
+      'studio.intro': 'Независимая студия, основанная в 2026. Не набор пет-проектов, а <em>экосистема</em> на машине пользователя: приложения, интеллект и игры — связаны одной философией и одним автором.',
+      'studio.p1d': 'Софт на вашем компьютере. Senza, Cultiva, BLIP, Flint — всё работает без облака и аккаунтов.',
+      'studio.p2d': 'Локальный AI и метаданные. Offline-first интеллект, который не требует загрузки в чужие дата-центры.',
+      'studio.p3d': 'Игровое крыло студии. Без live service, battle pass и FOMO. Просто игра, которую хочется дойти.',
+      'pet.title': 'Пет-проекты',
+      'pet.p': 'Здесь пока пусто, но не надолго.',
+      'pet.span': 'Пространство зарезервировано для будущих экспериментов.',
+      'contact.title': 'Контакт',
+      'contact.lead': 'Открыт для обсуждений, коллабораций и просто хороших разговоров о софте. Если наши взгляды совпадают — <em>напиши</em>.',
       'graph.title': 'Граф',
-      'graph.lead': 'Карта страницы — узлы, связи, backlinks. Тяните · колёсико — масштаб · клик — открыть.',
-      'graph.toolbar': 'Граф заметок', 'graph.fit': 'Вписать', 'graph.reset': 'Сбросить',
-      'graph.hint': 'тянуть · scroll · клик',
       'graph.legend.hub': 'krwg', 'graph.legend.page': 'Страницы', 'graph.legend.note': 'Заметки',
       'graph.legend.studio': 'Студия',
       'graph.backlinks': 'Связано с', 'graph.tip.open': 'Открыть →',
@@ -87,8 +99,8 @@
     html.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
-      var val = (I18N[lang] && I18N[lang][key]) || (lang === 'en' && I18N.en[key]);
-      if (val != null) el.innerHTML = val;
+      var val = (I18N[lang] && I18N[lang][key]) || I18N.en[key];
+      if (typeof val === 'string') el.innerHTML = val;
     });
     var langBtn = document.getElementById('langToggle');
     if (langBtn) langBtn.textContent = lang === 'ru' ? 'RU' : 'EN';
@@ -110,7 +122,7 @@
     localStorage.setItem('krwg-theme', theme);
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = theme === 'dark' ? '#121110' : '#faf9f7';
-    if (window.krwgSceneSetTheme) window.krwgSceneSetTheme(theme);
+    if (window.krwgSeasonBgSetTheme) window.krwgSeasonBgSetTheme(theme);
     loadGiscus(getRoute());
   }
 
@@ -144,6 +156,16 @@
   });
   drawer.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', function () { drawer.classList.remove('is-open'); });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      e.preventDefault();
+      if (location.hash !== href) location.hash = href;
+      else onRouteChange();
+    });
   });
 
   window.krwgGraphLabel = function (key) {
@@ -249,7 +271,7 @@
       btn.classList.toggle('is-active', btn.getAttribute('data-season') === mode);
     });
     updateSeasonOG(effective);
-    if (window.krwgSceneSetSeason) window.krwgSceneSetSeason(effective);
+    if (window.krwgSeasonBgSetSeason) window.krwgSeasonBgSetSeason(effective);
   }
 
   function setSeason(mode) {
@@ -263,14 +285,10 @@
     });
   });
 
-  document.addEventListener('krwg:scene-ready', function () {
+  document.addEventListener('krwg:season-bg-ready', function () {
     applySeasonToScene(localStorage.getItem('krwg-season') || 'auto');
   });
-  if (window.krwgSceneSetSeason) {
-    applySeasonToScene(localStorage.getItem('krwg-season') || 'auto');
-  } else {
-    applySeasonToScene(localStorage.getItem('krwg-season') || 'auto');
-  }
+  applySeasonToScene(localStorage.getItem('krwg-season') || 'auto');
 
   var giscusLoadedFor = '';
 

@@ -1,4 +1,4 @@
-const CACHE = 'krwg-v3';
+const CACHE = 'krwg-v4';
 const ASSETS = [
   './',
   './index.html',
@@ -7,8 +7,7 @@ const ASSETS = [
   './assets/krwg.css',
   './assets/krwg.js',
   './assets/graph.js',
-  './assets/scene3d.js',
-  './assets/scene-boot.js',
+  './assets/season-bg.js',
   './assets/giscus-config.js',
   './assets/icon.svg',
   './assets/portrait-placeholder.svg',

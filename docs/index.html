@@ -34,15 +34,11 @@
   document.documentElement.setAttribute('data-season',s);
 })();
 </script>
-<script type="importmap">
-{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
-</script>
-<base target="_blank">
 </head>
 <body>
 
-<div id="scene3d" aria-hidden="true"></div>
-<div class="scene-vignette" aria-hidden="true"></div>
+<canvas id="seasonCanvas" aria-hidden="true"></canvas>
+<div class="season-overlay" aria-hidden="true"></div>
 
 <div class="page-shell">
 <nav>
@@ -52,21 +48,21 @@
     <button type="button" class="nav-btn" id="themeToggle" aria-label="Theme">◐</button>
   </div>
   <ul>
-    <li><a href="#graph" data-nav="graph" data-i18n="nav.graph">Граф</a></li>
     <li><a href="#home" data-nav="home" data-i18n="nav.home">Главная</a></li>
     <li><a href="#bio" data-nav="bio" data-i18n="nav.bio">Биография</a></li>
     <li><a href="#pet" data-nav="pet" data-i18n="nav.pet">Пет-проекты</a></li>
     <li><a href="#contact" data-nav="contact" data-i18n="nav.contact">Контакт</a></li>
+    <li><a href="#graph" data-nav="graph" data-i18n="nav.graph">Граф</a></li>
   </ul>
   <button type="button" class="nav-btn nav-menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
 </nav>
 
 <div class="mobile-drawer" id="mobileDrawer">
-  <a href="#graph" data-nav="graph" data-i18n="nav.graph">Граф</a>
   <a href="#home" data-nav="home" data-i18n="nav.home">Главная</a>
   <a href="#bio" data-nav="bio" data-i18n="nav.bio">Биография</a>
   <a href="#pet" data-nav="pet" data-i18n="nav.pet">Пет-проекты</a>
   <a href="#contact" data-nav="contact" data-i18n="nav.contact">Контакт</a>
+  <a href="#graph" data-nav="graph" data-i18n="nav.graph">Граф</a>
 </div>
 
 <main>
@@ -105,21 +101,10 @@
     <span class="section-num">—</span>
     <h2 class="section-title" data-i18n="graph.title">Граф</h2>
   </div>
-  <p class="graph-lead reveal" data-i18n="graph.lead">
-    Карта страницы — узлы, связи, backlinks. Тяните · колёсико — масштаб · клик — открыть.
-  </p>
   <div class="graph-shell reveal">
-    <div class="graph-toolbar">
-      <span class="graph-toolbar-label" data-i18n="graph.toolbar">Граф заметок</span>
-      <div class="graph-toolbar-btns">
-        <button type="button" class="graph-tool" id="graphFitBtn" data-i18n="graph.fit">Вписать</button>
-        <button type="button" class="graph-tool" id="graphResetBtn" data-i18n="graph.reset">Сбросить</button>
-      </div>
-    </div>
     <div class="graph-canvas-wrap" id="graphCanvasWrap">
       <canvas id="graphCanvas" aria-label="krwg content graph"></canvas>
       <div class="graph-tooltip" id="graphTooltip"></div>
-      <div class="graph-hint" data-i18n="graph.hint">drag · scroll · click</div>
     </div>
     <div class="graph-legend">
       <span><i class="hub"></i><span data-i18n="graph.legend.hub">krwg</span></span>
@@ -161,7 +146,7 @@
       <span class="portrait-petal"></span>
       <span class="portrait-petal"></span>
       <div class="portrait-photo">
-        <img src="assets/portrait.jpg" alt="krwg" onerror="this.onerror=null;this.src='assets/portrait-placeholder.svg'">
+        <img src="https://github.com/krwg.png?size=256" alt="krwg" width="140" height="140" referrerpolicy="no-referrer">
       </div>
     </div>
     <p class="portrait-caption" data-i18n="portrait.caption">Портрет · 肖像</p>
@@ -320,10 +305,10 @@
         <span class="contact-link-value">@flokestudio</span>
         <span class="contact-link-arrow">→</span>
       </a>
-      <a href="mailto:krwg@floke.studio" class="contact-link">
+      <a href="mailto:getfloke@gmail.com" class="contact-link">
         <span class="contact-link-num">03</span>
         <span class="contact-link-label">Email</span>
-        <span class="contact-link-value">krwg@floke.studio</span>
+        <span class="contact-link-value">getfloke@gmail.com</span>
         <span class="contact-link-arrow">→</span>
       </a>
     </div>
@@ -351,7 +336,7 @@
 </footer>
 </div>
 
-<script type="module" src="assets/scene-boot.js"></script>
+<script src="assets/season-bg.js"></script>
 <script src="assets/graph.js"></script>
 <script src="assets/krwg.js"></script>
 </body>
