@@ -326,7 +326,7 @@
 
   function loadGiscus(term) {
     if (!term || COMMENT_SECTIONS.indexOf(term) < 0) return;
-    var wrap = document.querySelector('.giscus-mount[data-giscus-term="' + term + '"]');
+    var wrap = document.querySelector('.page-view.is-active .giscus-mount[data-giscus-term="' + term + '"]');
     if (!wrap) return;
     if (giscusLoadedFor === term && wrap.querySelector('iframe')) return;
 
@@ -339,15 +339,21 @@
         wrap.innerHTML = giscusHintHtml('krwg-' + term);
         return;
       }
+      var discussionNum = cfg.discussions && cfg.discussions[term];
       var s = document.createElement('script');
       s.src = 'https://giscus.app/client.js';
       s.setAttribute('data-repo', cfg.repo);
       s.setAttribute('data-repo-id', cfg.repoId);
       s.setAttribute('data-category', cfg.category);
       s.setAttribute('data-category-id', catId);
-      s.setAttribute('data-mapping', 'specific');
-      s.setAttribute('data-term', 'krwg-' + term);
-      s.setAttribute('data-strict', '0');
+      if (discussionNum) {
+        s.setAttribute('data-mapping', 'number');
+        s.setAttribute('data-term', String(discussionNum));
+      } else {
+        s.setAttribute('data-mapping', 'specific');
+        s.setAttribute('data-term', 'krwg-' + term);
+      }
+      s.setAttribute('data-strict', '1');
       s.setAttribute('data-reactions-enabled', '1');
       s.setAttribute('data-emit-metadata', '0');
       s.setAttribute('data-input-position', 'bottom');

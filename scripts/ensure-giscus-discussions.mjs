@@ -62,11 +62,16 @@ if (!cat) throw new Error('No discussion categories — enable Discussions on kr
 console.log('Category:', cat.name, cat.id);
 console.log('Add to docs/assets/giscus-config.js → categoryId:', JSON.stringify(cat.id));
 
+const keyFromTerm = (t) => t.replace(/^krwg-/, '');
+const discussionMap = {};
+
 const existing = new Map((repo.discussions?.nodes || []).map((d) => [d.title, d]));
 
 for (const term of TERMS) {
   if (existing.has(term)) {
-    console.log('exists:', term, '#', existing.get(term).number);
+    const n = existing.get(term).number;
+    discussionMap[keyFromTerm(term)] = n;
+    console.log('exists:', term, '#', n);
     continue;
   }
   const created = await gql(createDiscussion, {
@@ -76,5 +81,8 @@ for (const term of TERMS) {
     body: `Giscus thread for **${term}** on [krwg.github.io/krwg](https://krwg.github.io/krwg/).`
   });
   const d = created.createDiscussion.discussion;
+  discussionMap[keyFromTerm(term)] = d.number;
   console.log('created:', d.title, d.url);
 }
+
+console.log('\nAdd to giscus-config.js → discussions:', JSON.stringify(discussionMap, null, 2));
