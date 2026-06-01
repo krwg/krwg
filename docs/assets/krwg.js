@@ -4,7 +4,7 @@
   var I18N = {
     en: {
       'nav.graph': 'Graph', 'nav.home': 'Home', 'nav.bio': 'Bio',
-      'nav.pet': 'Pet', 'nav.contact': 'Contact',
+      'nav.pet': 'Pet', 'nav.contact': 'Contact', 'nav.posts': 'Posts',
       'hero.label': 'Personal page',
       'hero.sub': 'Student. Solo developer. Building software that works without asking the cloud for permission.',
       'hero.location': 'Location', 'hero.locationVal': 'Moscow, Russia',
@@ -13,9 +13,6 @@
       'stack.label': 'Stack',
       'stack.intro': 'Daily tools — GitHub shields.',
       'comments.title': 'Discussion',
-      'footer.season': 'Season', 'footer.auto': 'Auto',
-      'footer.spring': 'Spring', 'footer.summer': 'Summer',
-      'footer.autumn': 'Autumn', 'footer.winter': 'Winter',
       'bio.title': 'Bio',
       'bio.p1': 'Started with a desire to build a social network — <strong>Tiver</strong>, 2021. Six months of web dev with a friend, first version in plain HTML/CSS/JS. Not just a project — the point of no return: code as a way to materialize ideas.',
       'bio.p2': 'Then Python, pet projects, <strong>JKeep</strong> on Tkinter, custom Telegram themes, networks and VMs. Studies pushed hobbies to the shelf — but didn\'t kill them.',
@@ -39,14 +36,25 @@
       'graph.legend.studio': 'Studio',
       'graph.backlinks': 'Linked from', 'graph.tip.open': 'Open →',
       'graph.node.krwg': 'krwg', 'graph.node.home': 'Home', 'graph.node.graph': 'Graph',
-      'graph.node.bio': 'Bio', 'graph.node.pet': 'Pet projects', 'graph.node.contact': 'Contact',
+      'graph.node.bio': 'Bio', 'graph.node.pet': 'Pet projects', 'graph.node.posts': 'Posts', 'graph.node.contact': 'Contact',
       'graph.node.floke': 'Floke Studio', 'graph.node.tiver': 'Tiver', 'graph.node.jkeep': 'JKeep',
       'contact.title': 'Contact',
-      'contact.lead': 'Open to discussions, collaborations, and good conversations about software. If our views align — <em>write</em>.'
+      'contact.lead': 'Open to discussions, collaborations, and good conversations about software. If our views align — <em>write</em>.',
+      'posts.title': 'Posts',
+      'posts.lead': 'Notes from Telegraph — published here.',
+      'posts.loading': 'Loading…',
+      'posts.empty': 'No posts yet. Add Telegraph URLs to KRWG_TELEGRAPH in posts.js.',
+      'posts.readMore': 'Read →',
+      'posts.back': '← Back to posts',
+      'posts.by': 'By',
+      'posts.views': 'views',
+      'posts.tag': 'Telegraph',
+      'posts.openTelegraph': 'Open in Telegraph →',
+      'posts.error': 'Could not load this post. Open it on Telegraph or add to posts-cache.json.'
     },
     ru: {
       'nav.graph': 'Граф', 'nav.home': 'Главная', 'nav.bio': 'Биография',
-      'nav.pet': 'Пет-проекты', 'nav.contact': 'Контакт',
+      'nav.pet': 'Пет-проекты', 'nav.contact': 'Контакт', 'nav.posts': 'Посты',
       'hero.label': 'Личная страница',
       'hero.sub': 'Студент. Разработчик-одиночка. Строю софт, который работает без разрешения облака.',
       'hero.location': 'Локация', 'hero.locationVal': 'Москва, Россия',
@@ -55,9 +63,6 @@
       'stack.label': 'Стек',
       'stack.intro': 'Инструменты в ежедневной ротации — GitHub shields.',
       'comments.title': 'Обсуждение',
-      'footer.season': 'Сезон', 'footer.auto': 'Авто',
-      'footer.spring': 'Весна', 'footer.summer': 'Лето',
-      'footer.autumn': 'Осень', 'footer.winter': 'Зима',
       'bio.title': 'Биография',
       'bio.p1': 'Начал с желания создать свою социальную сеть — <strong>Tiver</strong>, 2021 год. Шесть месяцев веб-разработки с другом, первая версия на чистом HTML/CSS/JS. Это был не просто проект, а точка невозврата: я понял, что код — это способ материализовать идеи.',
       'bio.p2': 'Дальше — Python, куча пет-проектов, <strong>JKeep</strong> на Tkinter, кастомные темы для Telegram, погружение в сети и виртуальные машины. Учёба и обязательства отодвинули хобби на полку, но не убили.',
@@ -81,12 +86,23 @@
       'graph.legend.studio': 'Студия',
       'graph.backlinks': 'Связано с', 'graph.tip.open': 'Открыть →',
       'graph.node.krwg': 'krwg', 'graph.node.home': 'Главная', 'graph.node.graph': 'Граф',
-      'graph.node.bio': 'Биография', 'graph.node.pet': 'Пет-проекты', 'graph.node.contact': 'Контакт',
-      'graph.node.floke': 'Floke Studio', 'graph.node.tiver': 'Tiver', 'graph.node.jkeep': 'JKeep'
+      'graph.node.bio': 'Биография', 'graph.node.pet': 'Пет-проекты', 'graph.node.posts': 'Посты', 'graph.node.contact': 'Контакт',
+      'graph.node.floke': 'Floke Studio', 'graph.node.tiver': 'Tiver', 'graph.node.jkeep': 'JKeep',
+      'posts.title': 'Посты',
+      'posts.lead': 'Заметки из Telegraph — публикую сюда.',
+      'posts.loading': 'Загрузка…',
+      'posts.empty': 'Пока нет постов. Добавьте URL Telegraph в KRWG_TELEGRAPH в posts.js.',
+      'posts.readMore': 'Читать →',
+      'posts.back': '← К постам',
+      'posts.by': 'Автор',
+      'posts.views': 'просмотров',
+      'posts.tag': 'Telegraph',
+      'posts.openTelegraph': 'Открыть в Telegraph →',
+      'posts.error': 'Не удалось загрузить пост. Откройте в Telegraph или добавьте в posts-cache.json.'
     }
   };
 
-  var COMMENT_SECTIONS = ['bio', 'graph', 'pet', 'contact'];
+  var COMMENT_SECTIONS = ['bio', 'graph', 'pet', 'posts', 'contact'];
   var html = document.documentElement;
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reducedMotion) html.setAttribute('data-reduced-motion', 'true');
@@ -114,6 +130,9 @@
       if (window.krwgStopGraph) window.krwgStopGraph();
       window.krwgInitGraph();
     }
+    if (getRoute() === 'posts' && window.krwgPostsRoute) {
+      window.krwgPostsRoute(getSubRoute());
+    }
     loadGiscus(getRoute());
   }
 
@@ -122,7 +141,6 @@
     localStorage.setItem('krwg-theme', theme);
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = theme === 'dark' ? '#121110' : '#faf9f7';
-    if (window.krwgSeasonBgSetTheme) window.krwgSeasonBgSetTheme(theme);
     loadGiscus(getRoute());
   }
 
@@ -173,10 +191,25 @@
     return (I18N[lang] && I18N[lang][key]) || (I18N.en && I18N.en[key]) || key;
   };
 
+  window.krwgPostsLabel = window.krwgGraphLabel;
+
+  function parseHash() {
+    var raw = (location.hash || '#home').replace(/^#/, '');
+    var slash = raw.indexOf('/');
+    if (slash >= 0) {
+      return { page: raw.slice(0, slash).toLowerCase(), sub: decodeURIComponent(raw.slice(slash + 1)) };
+    }
+    return { page: (raw || 'home').toLowerCase(), sub: null };
+  }
+
   function getRoute() {
-    var h = (location.hash || '#home').slice(1).toLowerCase();
-    var pages = ['home', 'graph', 'bio', 'pet', 'contact'];
-    return pages.indexOf(h) >= 0 ? h : 'home';
+    var page = parseHash().page;
+    var pages = ['home', 'bio', 'pet', 'contact', 'posts', 'graph'];
+    return pages.indexOf(page) >= 0 ? page : 'home';
+  }
+
+  function getSubRoute() {
+    return parseHash().sub;
   }
 
   var PAGE_TITLES = {
@@ -184,6 +217,7 @@
     graph: 'Граф — krwg',
     bio: 'Биография — krwg',
     pet: 'Пет-проекты — krwg',
+    posts: 'Посты — krwg',
     contact: 'Контакт — krwg'
   };
 
@@ -217,7 +251,17 @@
     } else if (window.krwgStopGraph) {
       window.krwgStopGraph();
     }
+    if (route === 'posts' && window.krwgPostsRoute) {
+      window.krwgPostsRoute(getSubRoute());
+    }
     if (COMMENT_SECTIONS.indexOf(route) >= 0) loadGiscus(route);
+  }
+
+  var postsBack = document.getElementById('postsBack');
+  if (postsBack) {
+    postsBack.addEventListener('click', function () {
+      location.hash = '#posts';
+    });
   }
 
   window.addEventListener('hashchange', onRouteChange);
@@ -244,51 +288,7 @@
     reveals.forEach(function (el) { obs.observe(el); });
   }
 
-  function detectSeason() {
-    var m = new Date().getMonth();
-    if (m >= 2 && m <= 4) return 'spring';
-    if (m >= 8 && m <= 10) return 'autumn';
-    if (m === 11 || m <= 1) return 'winter';
-    return 'summer';
-  }
-
-  function getEffectiveSeason(mode) {
-    return mode === 'auto' ? detectSeason() : mode;
-  }
-
-  function updateSeasonOG(season) {
-    html.setAttribute('data-season', season);
-    var base = new URL('assets/og-' + season + '.svg', location.href).href;
-    var og = document.getElementById('og-image');
-    var tw = document.getElementById('tw-image');
-    if (og) og.content = base;
-    if (tw) tw.content = base;
-  }
-
-  function applySeasonToScene(mode) {
-    var effective = getEffectiveSeason(mode);
-    document.querySelectorAll('.season-btn').forEach(function (btn) {
-      btn.classList.toggle('is-active', btn.getAttribute('data-season') === mode);
-    });
-    updateSeasonOG(effective);
-    if (window.krwgSeasonBgSetSeason) window.krwgSeasonBgSetSeason(effective);
-  }
-
-  function setSeason(mode) {
-    localStorage.setItem('krwg-season', mode);
-    applySeasonToScene(mode);
-  }
-
-  document.querySelectorAll('.season-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      setSeason(btn.getAttribute('data-season'));
-    });
-  });
-
-  document.addEventListener('krwg:season-bg-ready', function () {
-    applySeasonToScene(localStorage.getItem('krwg-season') || 'auto');
-  });
-  applySeasonToScene(localStorage.getItem('krwg-season') || 'auto');
+  onRouteChange();
 
   var giscusLoadedFor = '';
 
@@ -302,17 +302,26 @@
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        query: 'query($o:String!,$n:String!){repository(owner:$o,name:$n){discussionCategories(first:5){nodes{id name}}}}',
+        query: 'query($o:String!,$n:String!){repository(owner:$o,name:$n){discussionCategories(first:10){nodes{id name}}}}',
         variables: { o: 'krwg', n: 'krwg' }
       })
     }).then(function (r) { return r.json(); }).then(function (json) {
-      var nodes = json && json.data && json.data.repository && json.data.repository.discussionCategories && json.data.repository.discussionCategories.nodes;
+      if (json.errors || !json.data || !json.data.repository) return null;
+      var nodes = json.data.repository.discussionCategories && json.data.repository.discussionCategories.nodes;
       if (!nodes || !nodes.length) return null;
       var pick = nodes.find(function (n) { return /general/i.test(n.name); }) || nodes[0];
       cfg.categoryId = pick.id;
       localStorage.setItem('krwg-giscus-category-id', pick.id);
       return pick.id;
     }).catch(function () { return null; });
+  }
+
+  function giscusHintHtml(term) {
+    return '<div class="giscus-hint">' +
+      'Комментарии через Giscus. Установите <a href="https://github.com/apps/giscus" target="_blank" rel="noopener">giscus app</a> на <code>krwg/krwg</code>, ' +
+      'затем выполните <code>GH_TOKEN=… node scripts/ensure-giscus-discussions.mjs</code> — создаст тред <code>' + term + '</code>. ' +
+      '<a href="https://github.com/krwg/krwg/discussions/new?category=general" target="_blank" rel="noopener">Или создайте Discussion вручную</a> с заголовком <code>' + term + '</code>.' +
+      '</div>';
   }
 
   function loadGiscus(term) {
@@ -327,7 +336,7 @@
     resolveCategoryId().then(function (catId) {
       var cfg = window.KRWG.giscus;
       if (!cfg.repoId || !catId) {
-        wrap.innerHTML = '<div class="giscus-hint">Giscus: enable Discussions on <code>krwg/krwg</code> and install the Giscus app. Category ID resolves automatically on first load.</div>';
+        wrap.innerHTML = giscusHintHtml('krwg-' + term);
         return;
       }
       var s = document.createElement('script');
@@ -349,8 +358,6 @@
       wrap.appendChild(s);
     });
   }
-
-  onRouteChange();
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {

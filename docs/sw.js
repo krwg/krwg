@@ -1,4 +1,4 @@
-const CACHE = 'krwg-v4';
+const CACHE = 'krwg-v5';
 const ASSETS = [
   './',
   './index.html',
@@ -7,8 +7,10 @@ const ASSETS = [
   './assets/krwg.css',
   './assets/krwg.js',
   './assets/graph.js',
-  './assets/season-bg.js',
+  './assets/posts.js',
+  './assets/sakura-bg.js',
   './assets/giscus-config.js',
+  './assets/data/posts-cache.json',
   './assets/icon.svg',
   './assets/portrait-placeholder.svg',
   './assets/og-spring.svg',
@@ -47,5 +49,5 @@ self.addEventListener('fetch', (e) => {
 });
 
 function shouldCache(path) {
-  return /\.(html|css|js|svg|webmanifest|jpg|jpeg|png|webp)$/.test(path) || path.endsWith('/');
+  return /\.(html|css|js|json|svg|webmanifest|jpg|jpeg|png|webp)$/.test(path) || path.endsWith('/');
 }

@@ -27,11 +27,6 @@
   var l=localStorage.getItem('krwg-lang');
   if(l==='en'||l==='ru')document.documentElement.setAttribute('data-lang',l);
   else document.documentElement.setAttribute('data-lang',(navigator.language||'en').toLowerCase().startsWith('ru')?'ru':'en');
-  var sm=localStorage.getItem('krwg-season');
-  var m=new Date().getMonth();
-  var auto=m>=2&&m<=4?'spring':m>=8&&m<=10?'autumn':(m===11||m<=1?'winter':'summer');
-  var s=(!sm||sm==='auto')?auto:sm;
-  document.documentElement.setAttribute('data-season',s);
 })();
 </script>
 </head>
@@ -52,6 +47,7 @@
     <li><a href="#bio" data-nav="bio" data-i18n="nav.bio">Биография</a></li>
     <li><a href="#pet" data-nav="pet" data-i18n="nav.pet">Пет-проекты</a></li>
     <li><a href="#contact" data-nav="contact" data-i18n="nav.contact">Контакт</a></li>
+    <li><a href="#posts" data-nav="posts" data-i18n="nav.posts">Посты</a></li>
     <li><a href="#graph" data-nav="graph" data-i18n="nav.graph">Граф</a></li>
   </ul>
   <button type="button" class="nav-btn nav-menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
@@ -62,6 +58,7 @@
   <a href="#bio" data-nav="bio" data-i18n="nav.bio">Биография</a>
   <a href="#pet" data-nav="pet" data-i18n="nav.pet">Пет-проекты</a>
   <a href="#contact" data-nav="contact" data-i18n="nav.contact">Контакт</a>
+  <a href="#posts" data-nav="posts" data-i18n="nav.posts">Посты</a>
   <a href="#graph" data-nav="graph" data-i18n="nav.graph">Граф</a>
 </div>
 
@@ -105,12 +102,6 @@
     <div class="graph-canvas-wrap" id="graphCanvasWrap">
       <canvas id="graphCanvas" aria-label="krwg content graph"></canvas>
       <div class="graph-tooltip" id="graphTooltip"></div>
-    </div>
-    <div class="graph-legend">
-      <span><i class="hub"></i><span data-i18n="graph.legend.hub">krwg</span></span>
-      <span><i class="page"></i><span data-i18n="graph.legend.page">Страницы</span></span>
-      <span><i class="note"></i><span data-i18n="graph.legend.note">Заметки</span></span>
-      <span><i class="studio"></i><span data-i18n="graph.legend.studio">Студия</span></span>
     </div>
   </div>
 </div>
@@ -280,6 +271,35 @@
 </div>
 </div>
 
+<!-- POSTS -->
+<div class="page-view" data-page="posts" hidden>
+<div class="page-section posts-page">
+  <div id="postsListView">
+    <div class="section-header reveal">
+      <span class="section-num">—</span>
+      <h2 class="section-title" data-i18n="posts.title">Посты</h2>
+    </div>
+    <p class="posts-lead reveal" data-i18n="posts.lead">Заметки из Telegraph — публикую сюда.</p>
+    <div class="posts-grid" id="postsGrid">
+      <div class="posts-loading" data-i18n="posts.loading">Загрузка…</div>
+    </div>
+  </div>
+  <article class="posts-article" id="postsArticleView" hidden>
+    <button type="button" class="posts-back" id="postsBack" data-i18n="posts.back">← К постам</button>
+    <header class="posts-article-head reveal">
+      <h2 class="posts-article-title" id="postsArticleTitle"></h2>
+      <div class="posts-article-meta" id="postsArticleMeta"></div>
+    </header>
+    <div class="telegraph-body reveal" id="postsArticleBody"></div>
+    <a class="posts-open-ext" id="postsOpenTelegraph" href="#" target="_blank" rel="noopener" data-i18n="posts.openTelegraph">Открыть в Telegraph →</a>
+  </article>
+</div>
+<div class="comments-section">
+  <div class="comments-head" data-i18n="comments.title">Обсуждение</div>
+  <div class="giscus-mount" data-giscus-term="posts"></div>
+</div>
+</div>
+
 <!-- CONTACT -->
 <div class="page-view" data-page="contact" hidden>
 <div class="page-section">
@@ -325,18 +345,11 @@
 <footer>
   <span>© 2026 アイダ ミール · krwg</span>
   <a href="https://github.com/krwg" target="_blank" rel="noopener">github.com/krwg</a>
-  <div class="footer-season">
-    <span class="footer-season-label" data-i18n="footer.season">Сезон</span>
-    <button type="button" class="season-btn is-active" data-season="auto" data-i18n="footer.auto">Авто</button>
-    <button type="button" class="season-btn" data-season="spring" data-i18n="footer.spring">Весна</button>
-    <button type="button" class="season-btn" data-season="summer" data-i18n="footer.summer">Лето</button>
-    <button type="button" class="season-btn" data-season="autumn" data-i18n="footer.autumn">Осень</button>
-    <button type="button" class="season-btn" data-season="winter" data-i18n="footer.winter">Зима</button>
-  </div>
 </footer>
 </div>
 
-<script src="assets/season-bg.js"></script>
+<script src="assets/sakura-bg.js"></script>
+<script src="assets/posts.js"></script>
 <script src="assets/graph.js"></script>
 <script src="assets/krwg.js"></script>
 </body>
