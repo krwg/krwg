@@ -6,20 +6,29 @@
 <title>krwg — アイダ ミール</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #faf9f7;
-    --fg: #1a1a1a;
-    --fg-dim: #6b6b6b;
-    --fg-light: #999;
-    --accent: #c41e3a;
-    --accent-soft: #e8d5d8;
-    --border: #e0ddd8;
-    --border-light: #f0ede8;
+    --bg: #0c0c0e;
+    --bg-elevated: #141416;
+    --bg-card: #1a1a1e;
+    --fg: #f0ece4;
+    --fg-dim: #8a8580;
+    --fg-light: #5a5550;
+    --accent: #c45c6a;
+    --accent-soft: #c45c6a33;
+    --accent-glow: #c45c6a22;
+    --sakura: #d4a5a5;
+    --sakura-dim: #d4a5a544;
+    --sakura-deep: #b07080;
+    --gold: #c8a96e;
+    --gold-dim: #c8a96e66;
+    --border: #2a2826;
+    --border-light: #1e1c1a;
     --mono: 'Space Mono', monospace;
     --sans: 'Inter', -apple-system, sans-serif;
     --serif: 'Playfair Display', Georgia, serif;
+    --jp: 'Noto Serif JP', serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,17 +42,40 @@
     line-height: 1.65;
     font-size: 15px;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   ::selection { background: var(--accent-soft); color: var(--fg); }
+
+  /* ---- SAKURA CANVAS ---- */
+  #sakura-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+  }
+
+  /* ---- JAPANESE TREE SVG (decorative) ---- */
+  .tree-decoration {
+    position: fixed;
+    right: -100px;
+    top: 0;
+    width: 600px;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.15;
+  }
 
   /* ---- NAV ---- */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(250,249,247,0.92);
-    backdrop-filter: blur(12px);
+    background: rgba(12,12,14,0.85);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-light);
     padding: 0 48px;
     height: 56px;
@@ -106,8 +138,8 @@
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-image:
-      linear-gradient(var(--border-light) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+      linear-gradient(rgba(196,92,106,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(196,92,106,0.03) 1px, transparent 1px);
     background-size: 80px 80px;
     opacity: 0.6;
     pointer-events: none;
@@ -118,7 +150,7 @@
     margin: 0 auto;
     width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .hero-label {
@@ -140,17 +172,28 @@
   }
 
   .hero h1 {
-    font-family: var(--serif);
+    font-family: var(--jp);
     font-size: clamp(48px, 8vw, 96px);
     font-weight: 400;
     line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
   }
 
   .hero h1 em {
+    font-family: var(--serif);
     font-style: italic;
     color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-jp-sub {
+    font-family: var(--jp);
+    font-size: 14px;
+    color: var(--sakura);
+    letter-spacing: 0.2em;
+    margin-bottom: 24px;
+    opacity: 0.7;
   }
 
   .hero-sub {
@@ -192,6 +235,7 @@
   .hero-meta-value#age-timer {
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.02em;
+    color: var(--accent);
   }
 
   /* ---- SECTIONS ---- */
@@ -199,6 +243,8 @@
     padding: 120px 48px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
   }
 
   .section-header {
@@ -218,10 +264,10 @@
   }
 
   .section-title {
-    font-family: var(--serif);
+    font-family: var(--jp);
     font-size: clamp(28px, 4vw, 42px);
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.05em;
   }
 
   /* ---- BIO ---- */
@@ -252,7 +298,7 @@
     position: absolute;
     left: 0; top: 6px; bottom: 6px;
     width: 1px;
-    background: var(--border);
+    background: linear-gradient(to bottom, var(--accent), transparent);
   }
 
   .timeline-item {
@@ -268,6 +314,7 @@
     border-radius: 50%;
     background: var(--bg);
     border: 2px solid var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
   }
 
   .timeline-item:last-child { padding-bottom: 0; }
@@ -306,7 +353,7 @@
     margin-bottom: 64px;
   }
 
-  .studio-intro em { color: var(--accent); font-style: italic; }
+  .studio-intro em { color: var(--sakura); font-style: italic; }
 
   .pillars {
     display: grid;
@@ -317,12 +364,29 @@
   }
 
   .pillar {
-    background: var(--bg);
+    background: var(--bg-card);
     padding: 48px 40px;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
   }
 
-  .pillar:hover { background: var(--border-light); }
+  .pillar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--sakura-dim), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .pillar:hover {
+    background: var(--bg-elevated);
+    transform: translateY(-2px);
+  }
+
+  .pillar:hover::before { opacity: 1; }
 
   .pillar-num {
     font-family: var(--mono);
@@ -333,10 +397,11 @@
   }
 
   .pillar-title {
-    font-family: var(--serif);
+    font-family: var(--jp);
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 12px;
+    letter-spacing: 0.05em;
   }
 
   .pillar-desc {
@@ -372,7 +437,12 @@
     line-height: 1.5;
     color: var(--fg);
     padding-left: 20px;
-    border-left: 2px solid var(--accent-soft);
+    border-left: 2px solid var(--sakura-dim);
+    transition: border-color 0.3s;
+  }
+
+  .philosophy-quotes blockquote:hover {
+    border-left-color: var(--sakura);
   }
 
   /* ---- PROJECTS ---- */
@@ -384,21 +454,24 @@
   }
 
   .project-card {
-    background: var(--bg);
+    background: var(--bg-card);
     padding: 48px 40px;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.3s;
     position: relative;
     overflow: hidden;
   }
 
-  .project-card:hover { background: var(--border-light); }
+  .project-card:hover {
+    background: var(--bg-elevated);
+    transform: translateY(-2px);
+  }
 
   .project-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 2px;
-    background: var(--accent);
+    background: linear-gradient(90deg, var(--accent), var(--sakura));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s;
@@ -423,6 +496,7 @@
     width: 6px; height: 6px;
     border-radius: 50%;
     background: #4a7c59;
+    box-shadow: 0 0 8px rgba(74,124,89,0.4);
   }
 
   .project-status.soon::after {
@@ -430,13 +504,15 @@
     width: 6px; height: 6px;
     border-radius: 50%;
     background: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
   }
 
   .project-name {
-    font-family: var(--serif);
+    font-family: var(--jp);
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 8px;
+    letter-spacing: 0.05em;
   }
 
   .project-tagline {
@@ -466,10 +542,13 @@
     text-decoration: none;
     border-bottom: 1px solid var(--border);
     padding-bottom: 2px;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, color 0.2s;
   }
 
-  .project-link:hover { border-color: var(--accent); }
+  .project-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
 
   .project-link svg {
     width: 12px; height: 12px;
@@ -484,6 +563,7 @@
     padding: 80px 40px;
     text-align: center;
     color: var(--fg-light);
+    background: linear-gradient(135deg, var(--bg-card) 0%, transparent 100%);
   }
 
   .pet-empty p {
@@ -491,6 +571,7 @@
     font-size: 20px;
     font-style: italic;
     margin-bottom: 12px;
+    color: var(--fg-dim);
   }
 
   .pet-empty span {
@@ -513,7 +594,7 @@
     line-height: 1.6;
   }
 
-  .contact-text em { color: var(--accent); font-style: italic; }
+  .contact-text em { color: var(--sakura); font-style: italic; }
 
   .contact-links {
     display: flex;
@@ -529,10 +610,13 @@
     border-bottom: 1px solid var(--border);
     text-decoration: none;
     color: var(--fg);
-    transition: padding-left 0.3s;
+    transition: padding-left 0.3s, background 0.3s;
   }
 
-  .contact-link:hover { padding-left: 12px; }
+  .contact-link:hover {
+    padding-left: 12px;
+    background: var(--accent-soft);
+  }
 
   .contact-link-num {
     font-family: var(--mono);
@@ -581,6 +665,8 @@
     font-size: 11px;
     color: var(--fg-light);
     letter-spacing: 0.02em;
+    position: relative;
+    z-index: 2;
   }
 
   footer a {
@@ -615,6 +701,7 @@
     .projects-grid,
     .philosophy-quotes { grid-template-columns: 1fr; }
     .hero-meta { gap: 24px; }
+    .tree-decoration { display: none; }
   }
 
   @media (max-width: 600px) {
@@ -626,6 +713,62 @@
 <base target="_blank">
 </head>
 <body>
+
+<!-- Sakura Canvas -->
+<canvas id="sakura-canvas"></canvas>
+
+<!-- Decorative Japanese Tree SVG -->
+<svg class="tree-decoration" viewBox="0 0 400 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="branchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c45c6a;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#d4a5a5;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+  <!-- Trunk -->
+  <path d="M350 800 Q340 700 360 600 Q380 500 350 400 Q320 300 340 200 Q360 100 380 50" 
+        stroke="url(#branchGrad)" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M350 600 Q300 550 280 500 Q260 450 290 400" 
+        stroke="url(#branchGrad)" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M340 400 Q280 380 250 350 Q220 320 240 280" 
+        stroke="url(#branchGrad)" stroke-width="1.5" fill="none" opacity="0.25"/>
+  <path d="M360 500 Q400 480 420 440 Q440 400 410 360" 
+        stroke="url(#branchGrad)" stroke-width="1.5" fill="none" opacity="0.25"/>
+  <path d="M380 300 Q420 280 440 240 Q460 200 430 170" 
+        stroke="url(#branchGrad)" stroke-width="1" fill="none" opacity="0.2"/>
+  <path d="M340 200 Q300 180 270 150 Q240 120 260 90" 
+        stroke="url(#branchGrad)" stroke-width="1" fill="none" opacity="0.2"/>
+
+  <!-- Sakura clusters -->
+  <g opacity="0.15">
+    <circle cx="380" cy="50" r="15" fill="#d4a5a5"/>
+    <circle cx="400" cy="70" r="12" fill="#c45c6a"/>
+    <circle cx="360" cy="80" r="10" fill="#d4a5a5"/>
+    <circle cx="420" cy="40" r="8" fill="#b07080"/>
+    <circle cx="430" cy="170" r="14" fill="#d4a5a5"/>
+    <circle cx="450" cy="190" r="10" fill="#c45c6a"/>
+    <circle cx="410" cy="360" r="12" fill="#d4a5a5"/>
+    <circle cx="440" cy="380" r="9" fill="#b07080"/>
+    <circle cx="240" cy="280" r="11" fill="#d4a5a5"/>
+    <circle cx="260" cy="90" r="13" fill="#c45c6a"/>
+    <circle cx="280" cy="110" r="8" fill="#d4a5a5"/>
+    <circle cx="250" cy="350" r="10" fill="#b07080"/>
+    <circle cx="280" cy="500" r="12" fill="#d4a5a5"/>
+    <circle cx="300" cy="520" r="9" fill="#c45c6a"/>
+  </g>
+
+  <!-- Falling petals -->
+  <g opacity="0.1">
+    <ellipse cx="200" cy="150" rx="6" ry="3" fill="#d4a5a5" transform="rotate(30 200 150)"/>
+    <ellipse cx="150" cy="250" rx="5" ry="2.5" fill="#c45c6a" transform="rotate(-20 150 250)"/>
+    <ellipse cx="250" cy="350" rx="4" ry="2" fill="#d4a5a5" transform="rotate(45 250 350)"/>
+    <ellipse cx="100" cy="450" rx="5" ry="2.5" fill="#b07080" transform="rotate(-15 100 450)"/>
+    <ellipse cx="300" cy="550" rx="6" ry="3" fill="#d4a5a5" transform="rotate(60 300 550)"/>
+    <ellipse cx="180" cy="650" rx="4" ry="2" fill="#c45c6a" transform="rotate(25 180 650)"/>
+    <ellipse cx="320" cy="200" rx="5" ry="2.5" fill="#d4a5a5" transform="rotate(-40 320 200)"/>
+    <ellipse cx="120" cy="300" rx="4" ry="2" fill="#b07080" transform="rotate(15 120 300)"/>
+  </g>
+</svg>
 
 <nav>
   <div class="logo">krwg<span>.</span></div>
@@ -643,7 +786,8 @@
   <div class="hero-grid"></div>
   <div class="hero-content">
     <div class="hero-label">Личная страница</div>
-    <h1>アイダ ミール<br><em>krwg</em></h1>
+    <h1>アイダ ミール</h1>
+    <div class="hero-jp-sub">会田 ミール · Aida Miru</div>
     <p class="hero-sub">
       Студент. Разработчик-одиночка. Строю софт, который работает без разрешения облака.
     </p>
@@ -668,7 +812,7 @@
 <section id="bio">
   <div class="section-header reveal">
     <span class="section-num">01</span>
-    <h2 class="section-title">Биография</h2>
+    <h2 class="section-title">経歴</h2>
   </div>
   <div class="bio-grid reveal">
     <div class="bio-text">
@@ -729,7 +873,7 @@
   <div class="pillars reveal">
     <div class="pillar">
       <div class="pillar-num">01 · Desktop</div>
-      <div class="pillar-title">Приложения</div>
+      <div class="pillar-title">アプリ</div>
       <div class="pillar-desc">
         Софт на вашем компьютере. Senza, Cultiva, BLIP, Flint —
         всё работает без облака и аккаунтов.
@@ -737,7 +881,7 @@
     </div>
     <div class="pillar">
       <div class="pillar-num">02 · Intelligence</div>
-      <div class="pillar-title">Glyph</div>
+      <div class="pillar-title">知能</div>
       <div class="pillar-desc">
         Локальный AI и метаданные. Offline-first интеллект,
         который не требует загрузки в чужие дата-центры.
@@ -745,7 +889,7 @@
     </div>
     <div class="pillar">
       <div class="pillar-num">03 · Games</div>
-      <div class="pillar-title">Floke Engine</div>
+      <div class="pillar-title">遊戯</div>
       <div class="pillar-desc">
         Игровое крыло студии. Без live service, battle pass и FOMO.
         Просто игра, которую хочется дойти.
@@ -753,12 +897,12 @@
     </div>
   </div>
   <div class="philosophy-block reveal">
-    <h3>Философия</h3>
+    <h3>哲学</h3>
     <div class="philosophy-quotes">
-      <blockquote>«Вашему софту не нужно разрешение, чтобы работать.»</blockquote>
-      <blockquote>«Облако — это чужой компьютер.»</blockquote>
-      <blockquote>«Offline-first — не ограничение, а позиция.»</blockquote>
-      <blockquote>«Мы создаём инструменты, которые доверяют пользователю.»</blockquote>
+      <blockquote>「あなたのソフトは、動作する許可を必要としない」</blockquote>
+      <blockquote>「クラウドは、他人のコンピュータである」</blockquote>
+      <blockquote>「オフライン・ファーストは制限ではなく、姿勢である」</blockquote>
+      <blockquote>「私たちは、ユーザーを信頼するツールを作る」</blockquote>
     </div>
   </div>
 </section>
@@ -767,7 +911,7 @@
 <section id="projects">
   <div class="section-header reveal">
     <span class="section-num">03</span>
-    <h2 class="section-title">Проекты</h2>
+    <h2 class="section-title">作品</h2>
   </div>
   <div class="projects-grid reveal">
     <div class="project-card">
@@ -783,7 +927,7 @@
     <div class="project-card">
       <div class="project-status live">Live</div>
       <div class="project-name">Cultiva</div>
-      <div class="project-tagline">«Сад привычек» на рабочем столе. Seed → tree → legacy.</div>
+      <div class="project-tagline">「デスクトップの習慣の庭」Seed → tree → legacy.</div>
       <div class="project-meta">v0.4.1 Coconut · Windows</div>
       <a href="https://github.com/FlokeStudio/Cultiva" class="project-link" target="_blank">
         Репозиторий
@@ -834,11 +978,11 @@
 <section id="pet">
   <div class="section-header reveal">
     <span class="section-num">04</span>
-    <h2 class="section-title">Пет-проекты</h2>
+    <h2 class="section-title">実験</h2>
   </div>
   <div class="pet-empty reveal">
-    <p>Здесь пока пусто, но не надолго.</p>
-    <span>Пространство зарезервировано для будущих экспериментов.</span>
+    <p>まだ空だが、長くはない</p>
+    <span>Здесь пока пусто, но не надолго · Пространство для будущих экспериментов</span>
   </div>
 </section>
 
@@ -846,7 +990,7 @@
 <section id="contact">
   <div class="section-header reveal">
     <span class="section-num">05</span>
-    <h2 class="section-title">Контакт</h2>
+    <h2 class="section-title">連絡</h2>
   </div>
   <div class="contact-grid reveal">
     <p class="contact-text">
@@ -883,7 +1027,148 @@
 </footer>
 
 <script>
-  // Age timer
+  // ===== SAKURA PARTICLE SYSTEM =====
+  const canvas = document.getElementById('sakura-canvas');
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let petals = [];
+  let branches = [];
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  class Petal {
+    constructor() {
+      this.reset();
+    }
+
+    reset() {
+      this.x = Math.random() * width;
+      this.y = -20;
+      this.size = Math.random() * 4 + 2;
+      this.speedY = Math.random() * 0.8 + 0.3;
+      this.speedX = Math.random() * 1.5 - 0.75;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotationSpeed = (Math.random() - 0.5) * 0.03;
+      this.opacity = Math.random() * 0.4 + 0.1;
+      this.swayFreq = Math.random() * 0.02 + 0.01;
+      this.swayAmp = Math.random() * 1.5 + 0.5;
+      this.time = Math.random() * 1000;
+      this.color = Math.random() > 0.5 ? '#d4a5a5' : '#c45c6a';
+    }
+
+    update() {
+      this.time++;
+      this.y += this.speedY;
+      this.x += this.speedX + Math.sin(this.time * this.swayFreq) * this.swayAmp * 0.3;
+      this.rotation += this.rotationSpeed;
+
+      if (this.y > height + 20) {
+        this.reset();
+      }
+    }
+
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.globalAlpha = this.opacity;
+      ctx.fillStyle = this.color;
+
+      // Petal shape (ellipse with slight point)
+      ctx.beginPath();
+      ctx.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Inner detail
+      ctx.globalAlpha = this.opacity * 0.5;
+      ctx.fillStyle = '#b07080';
+      ctx.beginPath();
+      ctx.ellipse(0, 0, this.size * 0.4, this.size * 0.2, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+    }
+  }
+
+  // Create petals
+  for (let i = 0; i < 60; i++) {
+    const p = new Petal();
+    p.y = Math.random() * height;
+    petals.push(p);
+  }
+
+  // Branch sway
+  class Branch {
+    constructor(x, y, length, angle, depth) {
+      this.x = x;
+      this.y = y;
+      this.length = length;
+      this.angle = angle;
+      this.depth = depth;
+      this.swayOffset = Math.random() * Math.PI * 2;
+      this.swaySpeed = 0.002 + Math.random() * 0.003;
+    }
+
+    draw(time) {
+      const sway = Math.sin(time * this.swaySpeed + this.swayOffset) * 0.03 * (4 - this.depth);
+      const endX = this.x + Math.cos(this.angle + sway) * this.length;
+      const endY = this.y + Math.sin(this.angle + sway) * this.length;
+
+      ctx.save();
+      ctx.globalAlpha = 0.08 - this.depth * 0.015;
+      ctx.strokeStyle = '#c45c6a';
+      ctx.lineWidth = 3 - this.depth;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y);
+      ctx.quadraticCurveTo(
+        (this.x + endX) / 2 + Math.sin(time * 0.001) * 5,
+        (this.y + endY) / 2,
+        endX, endY
+      );
+      ctx.stroke();
+      ctx.restore();
+
+      if (this.depth < 3) {
+        const branch1 = new Branch(endX, endY, this.length * 0.7, this.angle - 0.4, this.depth + 1);
+        const branch2 = new Branch(endX, endY, this.length * 0.6, this.angle + 0.5, this.depth + 1);
+        branch1.draw(time);
+        branch2.draw(time);
+      }
+    }
+  }
+
+  // Static decorative branches
+  const mainBranches = [
+    new Branch(width * 0.85, height * 0.3, 120, -Math.PI / 2, 0),
+    new Branch(width * 0.9, height * 0.5, 90, -Math.PI / 2 - 0.3, 0),
+    new Branch(width * 0.15, height * 0.2, 100, -Math.PI / 2 + 0.2, 0),
+  ];
+
+  let frame = 0;
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    frame++;
+
+    // Draw branches
+    mainBranches.forEach(b => b.draw(frame));
+
+    // Draw petals
+    petals.forEach(p => {
+      p.update();
+      p.draw();
+    });
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  // ===== AGE TIMER =====
   const birth = new Date('2004-08-03T00:00:00').getTime();
   const timerEl = document.getElementById('age-timer');
 
@@ -899,7 +1184,7 @@
   }
   updateTimer();
 
-  // Scroll reveal
+  // ===== SCROLL REVEAL =====
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -911,7 +1196,7 @@
 
   reveals.forEach(el => observer.observe(el));
 
-  // Nav highlight on scroll
+  // ===== NAV HIGHLIGHT =====
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav a');
 
