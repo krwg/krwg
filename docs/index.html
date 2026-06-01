@@ -3,831 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="krwg — アイダ ミール · personal page">
+<meta name="theme-color" content="#faf9f7">
+<meta property="og:title" content="krwg — アイダ ミール">
+<meta property="og:description" content="Student · solo developer · Floke Studio">
+<meta property="og:type" content="website">
+<meta property="og:image" id="og-image" content="assets/og-spring.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" id="tw-image" content="assets/og-spring.svg">
 <title>krwg — アイダ ミール</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #0c0c0e;
-    --bg-elevated: #141416;
-    --bg-card: #1a1a1e;
-    --fg: #f0ece4;
-    --fg-dim: #8a8580;
-    --fg-light: #5a5550;
-    --accent: #c45c6a;
-    --accent-soft: #c45c6a33;
-    --accent-glow: #c45c6a22;
-    --sakura: #d4a5a5;
-    --sakura-dim: #d4a5a544;
-    --sakura-deep: #b07080;
-    --gold: #c8a96e;
-    --gold-dim: #c8a96e66;
-    --border: #2a2826;
-    --border-light: #1e1c1a;
-    --mono: 'Space Mono', monospace;
-    --sans: 'Inter', -apple-system, sans-serif;
-    --serif: 'Playfair Display', Georgia, serif;
-    --jp: 'Noto Serif JP', serif;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--sans);
-    background: var(--bg);
-    color: var(--fg);
-    line-height: 1.65;
-    font-size: 15px;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  ::selection { background: var(--accent-soft); color: var(--fg); }
-
-  /* ---- SAKURA CANVAS ---- */
-  #sakura-canvas {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.7;
-  }
-
-  /* ---- JAPANESE TREE SVG (decorative) ---- */
-  .tree-decoration {
-    position: fixed;
-    right: -100px;
-    top: 0;
-    width: 600px;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.15;
-  }
-
-  /* ---- NAV ---- */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(12,12,14,0.85);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border-light);
-    padding: 0 48px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  nav .logo {
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  nav .logo span { color: var(--accent); }
-
-  nav ul {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  nav a {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--fg-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-    position: relative;
-  }
-
-  nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; left: 0;
-    width: 0; height: 1px;
-    background: var(--accent);
-    transition: width 0.3s;
-  }
-
-  nav a:hover { color: var(--fg); }
-  nav a:hover::after { width: 100%; }
-
-  /* ---- HERO ---- */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 120px 48px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-grid {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image:
-      linear-gradient(rgba(196,92,106,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(196,92,106,0.03) 1px, transparent 1px);
-    background-size: 80px 80px;
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
-  .hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--fg-light);
-    margin-bottom: 32px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .hero-label::before {
-    content: '';
-    width: 40px; height: 1px;
-    background: var(--accent);
-  }
-
-  .hero h1 {
-    font-family: var(--jp);
-    font-size: clamp(48px, 8vw, 96px);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px;
-  }
-
-  .hero h1 em {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--accent);
-    letter-spacing: -0.02em;
-  }
-
-  .hero-jp-sub {
-    font-family: var(--jp);
-    font-size: 14px;
-    color: var(--sakura);
-    letter-spacing: 0.2em;
-    margin-bottom: 24px;
-    opacity: 0.7;
-  }
-
-  .hero-sub {
-    font-family: var(--sans);
-    font-size: clamp(16px, 2vw, 20px);
-    font-weight: 300;
-    color: var(--fg-dim);
-    max-width: 520px;
-    line-height: 1.7;
-    margin-bottom: 48px;
-  }
-
-  .hero-meta {
-    display: flex;
-    gap: 48px;
-    flex-wrap: wrap;
-  }
-
-  .hero-meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .hero-meta-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--fg-light);
-  }
-
-  .hero-meta-value {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--fg);
-  }
-
-  .hero-meta-value#age-timer {
-    font-variant-numeric: tabular-nums;
-    letter-spacing: 0.02em;
-    color: var(--accent);
-  }
-
-  /* ---- SECTIONS ---- */
-  section {
-    padding: 120px 48px;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 24px;
-    margin-bottom: 64px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 24px;
-  }
-
-  .section-num {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-  }
-
-  .section-title {
-    font-family: var(--jp);
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 400;
-    letter-spacing: 0.05em;
-  }
-
-  /* ---- BIO ---- */
-  .bio-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .bio-text {
-    font-size: 16px;
-    line-height: 1.85;
-    color: var(--fg-dim);
-  }
-
-  .bio-text p + p { margin-top: 20px; }
-
-  .bio-text strong { color: var(--fg); font-weight: 500; }
-
-  .bio-timeline {
-    position: relative;
-    padding-left: 32px;
-  }
-
-  .bio-timeline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 6px; bottom: 6px;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--accent), transparent);
-  }
-
-  .timeline-item {
-    position: relative;
-    padding-bottom: 32px;
-  }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -36px; top: 6px;
-    width: 9px; height: 9px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 2px solid var(--accent);
-    box-shadow: 0 0 12px var(--accent-glow);
-  }
-
-  .timeline-item:last-child { padding-bottom: 0; }
-
-  .timeline-year {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.05em;
-    margin-bottom: 4px;
-  }
-
-  .timeline-text {
-    font-size: 14px;
-    color: var(--fg-dim);
-    line-height: 1.6;
-  }
-
-  .timeline-text a {
-    color: var(--fg);
-    text-decoration: none;
-    border-bottom: 1px solid var(--border);
-    transition: border-color 0.2s;
-  }
-
-  .timeline-text a:hover { border-color: var(--accent); }
-
-  /* ---- STUDIO ---- */
-  .studio-intro {
-    font-family: var(--serif);
-    font-size: clamp(20px, 3vw, 28px);
-    font-weight: 400;
-    line-height: 1.6;
-    color: var(--fg);
-    max-width: 800px;
-    margin-bottom: 64px;
-  }
-
-  .studio-intro em { color: var(--sakura); font-style: italic; }
-
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    margin-bottom: 64px;
-  }
-
-  .pillar {
-    background: var(--bg-card);
-    padding: 48px 40px;
-    transition: background 0.3s, transform 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .pillar::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--sakura-dim), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .pillar:hover {
-    background: var(--bg-elevated);
-    transform: translateY(-2px);
-  }
-
-  .pillar:hover::before { opacity: 1; }
-
-  .pillar-num {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-  }
-
-  .pillar-title {
-    font-family: var(--jp);
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    letter-spacing: 0.05em;
-  }
-
-  .pillar-desc {
-    font-size: 14px;
-    color: var(--fg-dim);
-    line-height: 1.65;
-  }
-
-  .philosophy-block {
-    border-top: 1px solid var(--border);
-    padding-top: 48px;
-  }
-
-  .philosophy-block h3 {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--fg-light);
-    margin-bottom: 24px;
-  }
-
-  .philosophy-quotes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px 48px;
-  }
-
-  .philosophy-quotes blockquote {
-    font-family: var(--serif);
-    font-size: 18px;
-    font-style: italic;
-    line-height: 1.5;
-    color: var(--fg);
-    padding-left: 20px;
-    border-left: 2px solid var(--sakura-dim);
-    transition: border-color 0.3s;
-  }
-
-  .philosophy-quotes blockquote:hover {
-    border-left-color: var(--sakura);
-  }
-
-  /* ---- PROJECTS ---- */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--border);
-  }
-
-  .project-card {
-    background: var(--bg-card);
-    padding: 48px 40px;
-    transition: background 0.3s, transform 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .project-card:hover {
-    background: var(--bg-elevated);
-    transform: translateY(-2px);
-  }
-
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--sakura));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s;
-  }
-
-  .project-card:hover::before { transform: scaleX(1); }
-
-  .project-status {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--fg-light);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .project-status.live::after {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #4a7c59;
-    box-shadow: 0 0 8px rgba(74,124,89,0.4);
-  }
-
-  .project-status.soon::after {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 8px var(--accent-glow);
-  }
-
-  .project-name {
-    font-family: var(--jp);
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    letter-spacing: 0.05em;
-  }
-
-  .project-tagline {
-    font-size: 14px;
-    color: var(--fg-dim);
-    margin-bottom: 20px;
-    line-height: 1.5;
-  }
-
-  .project-meta {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--fg-light);
-    letter-spacing: 0.02em;
-  }
-
-  .project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 24px;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg);
-    text-decoration: none;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 2px;
-    transition: border-color 0.2s, color 0.2s;
-  }
-
-  .project-link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .project-link svg {
-    width: 12px; height: 12px;
-    transition: transform 0.2s;
-  }
-
-  .project-link:hover svg { transform: translateX(3px); }
-
-  /* ---- PET PROJECTS ---- */
-  .pet-empty {
-    border: 1px dashed var(--border);
-    padding: 80px 40px;
-    text-align: center;
-    color: var(--fg-light);
-    background: linear-gradient(135deg, var(--bg-card) 0%, transparent 100%);
-  }
-
-  .pet-empty p {
-    font-family: var(--serif);
-    font-size: 20px;
-    font-style: italic;
-    margin-bottom: 12px;
-    color: var(--fg-dim);
-  }
-
-  .pet-empty span {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.05em;
-  }
-
-  /* ---- CONTACT ---- */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-  }
-
-  .contact-text {
-    font-family: var(--serif);
-    font-size: clamp(20px, 3vw, 28px);
-    font-weight: 400;
-    line-height: 1.6;
-  }
-
-  .contact-text em { color: var(--sakura); font-style: italic; }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 24px 0;
-    border-bottom: 1px solid var(--border);
-    text-decoration: none;
-    color: var(--fg);
-    transition: padding-left 0.3s, background 0.3s;
-  }
-
-  .contact-link:hover {
-    padding-left: 12px;
-    background: var(--accent-soft);
-  }
-
-  .contact-link-num {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--fg-light);
-    min-width: 24px;
-  }
-
-  .contact-link-label {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-light);
-    min-width: 100px;
-  }
-
-  .contact-link-value {
-    font-size: 16px;
-    color: var(--fg);
-  }
-
-  .contact-link-arrow {
-    margin-left: auto;
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--fg-light);
-    transition: color 0.2s, transform 0.2s;
-  }
-
-  .contact-link:hover .contact-link-arrow {
-    color: var(--accent);
-    transform: translateX(4px);
-  }
-
-  /* ---- FOOTER ---- */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 40px 48px;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--fg-light);
-    letter-spacing: 0.02em;
-    position: relative;
-    z-index: 2;
-  }
-
-  footer a {
-    color: var(--fg-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  footer a:hover { color: var(--accent); }
-
-  /* ---- SCROLL REVEAL ---- */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ---- RESPONSIVE ---- */
-  @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    nav ul { display: none; }
-    .hero { padding: 100px 24px 60px; }
-    section { padding: 80px 24px; }
-    .bio-grid,
-    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-    .pillars,
-    .projects-grid,
-    .philosophy-quotes { grid-template-columns: 1fr; }
-    .hero-meta { gap: 24px; }
-    .tree-decoration { display: none; }
-  }
-
-  @media (max-width: 600px) {
-    .hero h1 { font-size: 40px; }
-    .pillar,
-    .project-card { padding: 32px 24px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Shippori+Mincho:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/krwg.css">
+<script src="assets/giscus-config.js"></script>
+<script>
+(function(){
+  var t=localStorage.getItem('krwg-theme');
+  if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);
+  else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');
+  var l=localStorage.getItem('krwg-lang');
+  if(l==='en'||l==='ru')document.documentElement.setAttribute('data-lang',l);
+  else document.documentElement.setAttribute('data-lang',(navigator.language||'en').toLowerCase().startsWith('ru')?'ru':'en');
+  var sm=localStorage.getItem('krwg-season');
+  var m=new Date().getMonth();
+  var auto=m>=2&&m<=4?'spring':m>=8&&m<=10?'autumn':(m===11||m<=1?'winter':'summer');
+  var s=(!sm||sm==='auto')?auto:sm;
+  document.documentElement.setAttribute('data-season',s);
+})();
+</script>
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
+</script>
 <base target="_blank">
 </head>
 <body>
 
-<!-- Sakura Canvas -->
-<canvas id="sakura-canvas"></canvas>
+<div id="scene3d" aria-hidden="true"></div>
+<div class="scene-vignette" aria-hidden="true"></div>
 
-<!-- Decorative Japanese Tree SVG -->
-<svg class="tree-decoration" viewBox="0 0 400 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="branchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#c45c6a;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#d4a5a5;stop-opacity:0.1"/>
-    </linearGradient>
-  </defs>
-  <!-- Trunk -->
-  <path d="M350 800 Q340 700 360 600 Q380 500 350 400 Q320 300 340 200 Q360 100 380 50" 
-        stroke="url(#branchGrad)" stroke-width="3" fill="none" opacity="0.4"/>
-  <path d="M350 600 Q300 550 280 500 Q260 450 290 400" 
-        stroke="url(#branchGrad)" stroke-width="2" fill="none" opacity="0.3"/>
-  <path d="M340 400 Q280 380 250 350 Q220 320 240 280" 
-        stroke="url(#branchGrad)" stroke-width="1.5" fill="none" opacity="0.25"/>
-  <path d="M360 500 Q400 480 420 440 Q440 400 410 360" 
-        stroke="url(#branchGrad)" stroke-width="1.5" fill="none" opacity="0.25"/>
-  <path d="M380 300 Q420 280 440 240 Q460 200 430 170" 
-        stroke="url(#branchGrad)" stroke-width="1" fill="none" opacity="0.2"/>
-  <path d="M340 200 Q300 180 270 150 Q240 120 260 90" 
-        stroke="url(#branchGrad)" stroke-width="1" fill="none" opacity="0.2"/>
-
-  <!-- Sakura clusters -->
-  <g opacity="0.15">
-    <circle cx="380" cy="50" r="15" fill="#d4a5a5"/>
-    <circle cx="400" cy="70" r="12" fill="#c45c6a"/>
-    <circle cx="360" cy="80" r="10" fill="#d4a5a5"/>
-    <circle cx="420" cy="40" r="8" fill="#b07080"/>
-    <circle cx="430" cy="170" r="14" fill="#d4a5a5"/>
-    <circle cx="450" cy="190" r="10" fill="#c45c6a"/>
-    <circle cx="410" cy="360" r="12" fill="#d4a5a5"/>
-    <circle cx="440" cy="380" r="9" fill="#b07080"/>
-    <circle cx="240" cy="280" r="11" fill="#d4a5a5"/>
-    <circle cx="260" cy="90" r="13" fill="#c45c6a"/>
-    <circle cx="280" cy="110" r="8" fill="#d4a5a5"/>
-    <circle cx="250" cy="350" r="10" fill="#b07080"/>
-    <circle cx="280" cy="500" r="12" fill="#d4a5a5"/>
-    <circle cx="300" cy="520" r="9" fill="#c45c6a"/>
-  </g>
-
-  <!-- Falling petals -->
-  <g opacity="0.1">
-    <ellipse cx="200" cy="150" rx="6" ry="3" fill="#d4a5a5" transform="rotate(30 200 150)"/>
-    <ellipse cx="150" cy="250" rx="5" ry="2.5" fill="#c45c6a" transform="rotate(-20 150 250)"/>
-    <ellipse cx="250" cy="350" rx="4" ry="2" fill="#d4a5a5" transform="rotate(45 250 350)"/>
-    <ellipse cx="100" cy="450" rx="5" ry="2.5" fill="#b07080" transform="rotate(-15 100 450)"/>
-    <ellipse cx="300" cy="550" rx="6" ry="3" fill="#d4a5a5" transform="rotate(60 300 550)"/>
-    <ellipse cx="180" cy="650" rx="4" ry="2" fill="#c45c6a" transform="rotate(25 180 650)"/>
-    <ellipse cx="320" cy="200" rx="5" ry="2.5" fill="#d4a5a5" transform="rotate(-40 320 200)"/>
-    <ellipse cx="120" cy="300" rx="4" ry="2" fill="#b07080" transform="rotate(15 120 300)"/>
-  </g>
-</svg>
-
+<div class="page-shell">
 <nav>
-  <div class="logo">krwg<span>.</span></div>
+  <a class="logo" href="#home">krwg<span>.</span></a>
+  <div class="nav-prefs">
+    <button type="button" class="nav-btn" id="langToggle">RU</button>
+    <button type="button" class="nav-btn" id="themeToggle" aria-label="Theme">◐</button>
+  </div>
   <ul>
-    <li><a href="#bio">Биография</a></li>
-    <li><a href="#studio">Студия</a></li>
-    <li><a href="#projects">Проекты</a></li>
-    <li><a href="#pet">Пет-проекты</a></li>
-    <li><a href="#contact">Контакт</a></li>
+    <li><a href="#graph" data-nav="graph" data-i18n="nav.graph">Граф</a></li>
+    <li><a href="#home" data-nav="home" data-i18n="nav.home">Главная</a></li>
+    <li><a href="#bio" data-nav="bio" data-i18n="nav.bio">Биография</a></li>
+    <li><a href="#pet" data-nav="pet" data-i18n="nav.pet">Пет-проекты</a></li>
+    <li><a href="#contact" data-nav="contact" data-i18n="nav.contact">Контакт</a></li>
   </ul>
+  <button type="button" class="nav-btn nav-menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
 </nav>
 
-<!-- HERO -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="#graph" data-nav="graph" data-i18n="nav.graph">Граф</a>
+  <a href="#home" data-nav="home" data-i18n="nav.home">Главная</a>
+  <a href="#bio" data-nav="bio" data-i18n="nav.bio">Биография</a>
+  <a href="#pet" data-nav="pet" data-i18n="nav.pet">Пет-проекты</a>
+  <a href="#contact" data-nav="contact" data-i18n="nav.contact">Контакт</a>
+</div>
+
+<main>
+
+<!-- HOME -->
+<div class="page-view is-active" data-page="home">
 <section class="hero">
-  <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-label">Личная страница</div>
-    <h1>アイダ ミール</h1>
-    <div class="hero-jp-sub">会田 ミール · Aida Miru</div>
-    <p class="hero-sub">
+    <div class="hero-label" data-i18n="hero.label">Личная страница</div>
+    <h1>アイダ ミール<br><em>krwg</em></h1>
+    <p class="hero-sub" data-i18n="hero.sub">
       Студент. Разработчик-одиночка. Строю софт, который работает без разрешения облака.
     </p>
     <div class="hero-meta">
       <div class="hero-meta-item">
-        <span class="hero-meta-label">Локация</span>
-        <span class="hero-meta-value">Москва, Россия</span>
+        <span class="hero-meta-label" data-i18n="hero.location">Локация</span>
+        <span class="hero-meta-value" data-i18n="hero.locationVal">Москва, Россия</span>
       </div>
       <div class="hero-meta-item">
-        <span class="hero-meta-label">Возраст</span>
+        <span class="hero-meta-label" data-i18n="hero.age">Возраст</span>
         <span class="hero-meta-value" id="age-timer">00.000000000</span>
       </div>
       <div class="hero-meta-item">
-        <span class="hero-meta-label">Статус</span>
-        <span class="hero-meta-value">Студент · Хобби-разработчик</span>
+        <span class="hero-meta-label" data-i18n="hero.status">Статус</span>
+        <span class="hero-meta-value" data-i18n="hero.statusVal">Студент · Хобби-разработчик</span>
       </div>
     </div>
   </div>
 </section>
+</div>
 
-<!-- BIO -->
-<section id="bio">
+<!-- GRAPH -->
+<div class="page-view" data-page="graph" hidden>
+<div class="page-section graph-page">
+  <div class="section-header reveal">
+    <span class="section-num">—</span>
+    <h2 class="section-title" data-i18n="graph.title">Граф</h2>
+  </div>
+  <p class="graph-lead reveal" data-i18n="graph.lead">
+    Карта страницы — узлы, связи, backlinks. Тяните · колёсико — масштаб · клик — открыть.
+  </p>
+  <div class="graph-shell reveal">
+    <div class="graph-toolbar">
+      <span class="graph-toolbar-label" data-i18n="graph.toolbar">Граф заметок</span>
+      <div class="graph-toolbar-btns">
+        <button type="button" class="graph-tool" id="graphFitBtn" data-i18n="graph.fit">Вписать</button>
+        <button type="button" class="graph-tool" id="graphResetBtn" data-i18n="graph.reset">Сбросить</button>
+      </div>
+    </div>
+    <div class="graph-canvas-wrap" id="graphCanvasWrap">
+      <canvas id="graphCanvas" aria-label="krwg content graph"></canvas>
+      <div class="graph-tooltip" id="graphTooltip"></div>
+      <div class="graph-hint" data-i18n="graph.hint">drag · scroll · click</div>
+    </div>
+    <div class="graph-legend">
+      <span><i class="hub"></i><span data-i18n="graph.legend.hub">krwg</span></span>
+      <span><i class="page"></i><span data-i18n="graph.legend.page">Страницы</span></span>
+      <span><i class="note"></i><span data-i18n="graph.legend.note">Заметки</span></span>
+      <span><i class="studio"></i><span data-i18n="graph.legend.studio">Студия</span></span>
+    </div>
+  </div>
+</div>
+<div class="comments-section">
+  <div class="comments-head" data-i18n="comments.title">Обсуждение</div>
+  <div class="giscus-mount" data-giscus-term="graph"></div>
+</div>
+</div>
+
+<!-- BIO + STACK -->
+<div class="page-view" data-page="bio" hidden>
+<div class="page-section">
   <div class="section-header reveal">
     <span class="section-num">01</span>
-    <h2 class="section-title">経歴</h2>
+    <h2 class="section-title" data-i18n="bio.title">Биография</h2>
+  </div>
+  <div class="portrait-wrap reveal">
+    <div class="portrait-deco">
+      <svg class="portrait-enso" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <linearGradient id="ensoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1a1a1a"/>
+            <stop offset="45%" stop-color="#c41e3a"/>
+            <stop offset="100%" stop-color="#f4b4c4"/>
+          </linearGradient>
+        </defs>
+        <path d="M 100 24 A 76 76 0 1 1 28 128" fill="none" stroke="url(#ensoGrad)" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 32 132 A 40 40 0 0 1 52 148" fill="none" stroke="#f4b4c4" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+      </svg>
+      <span class="portrait-petal"></span>
+      <span class="portrait-petal"></span>
+      <span class="portrait-petal"></span>
+      <span class="portrait-petal"></span>
+      <span class="portrait-petal"></span>
+      <div class="portrait-photo">
+        <img src="assets/portrait.jpg" alt="krwg" onerror="this.onerror=null;this.src='assets/portrait-placeholder.svg'">
+      </div>
+    </div>
+    <p class="portrait-caption" data-i18n="portrait.caption">Портрет · 肖像</p>
   </div>
   <div class="bio-grid reveal">
     <div class="bio-text">
-      <p>
+      <p data-i18n="bio.p1">
         Начал с желания создать свою социальную сеть — <strong>Tiver</strong>, 2021 год.
         Шесть месяцев веб-разработки с другом, первая версия на чистом HTML/CSS/JS.
         Это был не просто проект, а точка невозврата: я понял, что код — это способ
         материализовать идеи.
       </p>
-      <p>
+      <p data-i18n="bio.p2">
         Дальше — Python, куча пет-проектов, <strong>JKeep</strong> на Tkinter,
         кастомные темы для Telegram, погружение в сети и виртуальные машины.
         Учёба и обязательства отодвинули хобби на полку, но не убили.
       </p>
-      <p>
+      <p data-i18n="bio.p3">
         Апрель 2026 — всё изменилось. <strong>Cultiva</strong>, изучение JS и Electron,
         затем экосистема <strong>Floke</strong>. Сейчас — Rust, Tauri, RAG, SQL,
         TypeScript, Ollama, устройство LLM. Каждый день — новый слой.
@@ -836,164 +188,122 @@
     <div class="bio-timeline">
       <div class="timeline-item">
         <div class="timeline-year">2021</div>
-        <div class="timeline-text">
-          Первый проект <a href="https://github.com/krwg/Tiver" target="_blank">Tiver</a> —
+        <div class="timeline-text" data-i18n="bio.t1">
+          Первый проект <a href="https://github.com/krwg/Tiver">Tiver</a> —
           социальная сеть с другом. Шесть месяцев веб-разработки.
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2024</div>
-        <div class="timeline-text">
+        <div class="timeline-text" data-i18n="bio.t2">
           Telegram-канал krwg, <strong>JKeep</strong> на Python + Tkinter,
           кастомные темы для Telegram, изучение сетей и VM.
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2026</div>
-        <div class="timeline-text">
+        <div class="timeline-text" data-i18n="bio.t3">
           Возвращение. <strong>Cultiva</strong>, экосистема <strong>Floke Studio</strong>,
           Rust, Tauri, локальный AI, RAG.
         </div>
       </div>
     </div>
   </div>
-</section>
+  <div class="stack-block reveal">
+    <div class="stack-label" data-i18n="stack.label">Стек</div>
+    <p class="stack-intro" data-i18n="stack.intro">Технологии в ежедневной ротации — бейджи GitHub shields.</p>
+    <div class="stack-badges">
+      <img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" alt="Rust" loading="lazy">
+      <img src="https://img.shields.io/badge/Tauri-24C8DB?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri" loading="lazy">
+      <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" loading="lazy">
+      <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" loading="lazy">
+      <img src="https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white" alt="Electron" loading="lazy">
+      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" loading="lazy">
+      <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" loading="lazy">
+      <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" loading="lazy">
+      <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" loading="lazy">
+      <img src="https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama" loading="lazy">
+      <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" loading="lazy">
+      <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white" alt="GitHub Actions" loading="lazy">
+    </div>
+  </div>
+</div>
+<div class="comments-section">
+  <div class="comments-head" data-i18n="comments.title">Обсуждение</div>
+  <div class="giscus-mount" data-giscus-term="bio"></div>
+</div>
+</div>
 
-<!-- STUDIO -->
-<section id="studio">
+<!-- PET -->
+<div class="page-view" data-page="pet" hidden>
+<div class="page-section">
   <div class="section-header reveal">
     <span class="section-num">02</span>
-    <h2 class="section-title">Floke Studio</h2>
+    <h2 class="section-title" data-i18n="pet.title">Пет-проекты</h2>
   </div>
-  <p class="studio-intro reveal">
-    Независимая студия, основанная в 2026. Не набор пет-проектов, а <em>экосистема</em>
-    на машине пользователя: приложения, интеллект и игры — связаны одной философией
-    и одним автором.
-  </p>
-  <div class="pillars reveal">
-    <div class="pillar">
-      <div class="pillar-num">01 · Desktop</div>
-      <div class="pillar-title">アプリ</div>
-      <div class="pillar-desc">
-        Софт на вашем компьютере. Senza, Cultiva, BLIP, Flint —
-        всё работает без облака и аккаунтов.
-      </div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">02 · Intelligence</div>
-      <div class="pillar-title">知能</div>
-      <div class="pillar-desc">
-        Локальный AI и метаданные. Offline-first интеллект,
-        который не требует загрузки в чужие дата-центры.
-      </div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">03 · Games</div>
-      <div class="pillar-title">遊戯</div>
-      <div class="pillar-desc">
-        Игровое крыло студии. Без live service, battle pass и FOMO.
-        Просто игра, которую хочется дойти.
-      </div>
-    </div>
-  </div>
-  <div class="philosophy-block reveal">
-    <h3>哲学</h3>
-    <div class="philosophy-quotes">
-      <blockquote>「あなたのソフトは、動作する許可を必要としない」</blockquote>
-      <blockquote>「クラウドは、他人のコンピュータである」</blockquote>
-      <blockquote>「オフライン・ファーストは制限ではなく、姿勢である」</blockquote>
-      <blockquote>「私たちは、ユーザーを信頼するツールを作る」</blockquote>
-    </div>
-  </div>
-</section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header reveal">
-    <span class="section-num">03</span>
-    <h2 class="section-title">作品</h2>
+  <div class="studio-in-pet reveal">
+    <div class="studio-in-pet-head">
+      <span class="studio-in-pet-tag">Floke Studio</span>
+      <h3 class="studio-in-pet-title" data-i18n="studio.blockTitle">Студия</h3>
+    </div>
+    <p class="studio-intro" data-i18n="studio.intro">
+      Независимая студия, основанная в 2026. Не набор пет-проектов, а <em>экосистема</em>
+      на машине пользователя: приложения, интеллект и игры — связаны одной философией
+      и одним автором.
+    </p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01 · Desktop</div>
+        <div class="pillar-title">Приложения</div>
+        <div class="pillar-desc" data-i18n="studio.p1d">
+          Софт на вашем компьютере. Senza, Cultiva, BLIP, Flint —
+          всё работает без облака и аккаунтов.
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02 · Intelligence</div>
+        <div class="pillar-title">Glyph</div>
+        <div class="pillar-desc" data-i18n="studio.p2d">
+          Локальный AI и метаданные. Offline-first интеллект,
+          который не требует загрузки в чужие дата-центры.
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03 · Games</div>
+        <div class="pillar-title">Floke Engine</div>
+        <div class="pillar-desc" data-i18n="studio.p3d">
+          Игровое крыло студии. Без live service, battle pass и FOMO.
+          Просто игра, которую хочется дойти.
+        </div>
+      </div>
+    </div>
+    <a href="https://flokestudio.github.io/Floke/" class="studio-more-link" target="_blank" rel="noopener">
+      <span data-i18n="studio.more">Подробнее</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
   </div>
-  <div class="projects-grid reveal">
-    <div class="project-card">
-      <div class="project-status live">Live</div>
-      <div class="project-name">Senza</div>
-      <div class="project-tagline">Музыкальная библиотека. Flow, Vault, offline-first. Glyph внутри.</div>
-      <div class="project-meta">v1.0.0 Vivo · Windows</div>
-      <a href="https://github.com/FlokeStudio/Senza" class="project-link" target="_blank">
-        Репозиторий
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="project-card">
-      <div class="project-status live">Live</div>
-      <div class="project-name">Cultiva</div>
-      <div class="project-tagline">「デスクトップの習慣の庭」Seed → tree → legacy.</div>
-      <div class="project-meta">v0.4.1 Coconut · Windows</div>
-      <a href="https://github.com/FlokeStudio/Cultiva" class="project-link" target="_blank">
-        Репозиторий
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="project-card">
-      <div class="project-status live">Live</div>
-      <div class="project-name">BLIP</div>
-      <div class="project-tagline">Mesh-чат и библиотека. Local-first, без серверов.</div>
-      <div class="project-meta">Latest · Windows</div>
-      <a href="https://github.com/FlokeStudio/BLIP" class="project-link" target="_blank">
-        Репозиторий
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="project-card">
-      <div class="project-status soon">Soon</div>
-      <div class="project-name">Flint</div>
-      <div class="project-tagline">Локальные агенты: Code, Writer, General. Ты одобряешь каждый шаг.</div>
-      <div class="project-meta">Q3 2026 · Windows</div>
-      <a href="https://github.com/FlokeStudio/Flint" class="project-link" target="_blank">
-        Репозиторий
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="project-card">
-      <div class="project-status live">Live</div>
-      <div class="project-name">Glyph-MI</div>
-      <div class="project-tagline">Metadata Intelligence. Питает Senza сегодня, все приложения — завтра.</div>
-      <div class="project-meta">2.2-O · Cross-platform</div>
-      <a href="https://github.com/FlokeStudio/Glyph-MI" class="project-link" target="_blank">
-        Репозиторий
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="project-card">
-      <div class="project-status soon">Soon</div>
-      <div class="project-name">Echo</div>
-      <div class="project-tagline">Первый тайтл на Floke Engine. Тизер, не анонсированный релиз.</div>
-      <div class="project-meta">TBA · Windows</div>
-      <span class="project-link" style="opacity:0.4;cursor:default;">Скоро</span>
-    </div>
-  </div>
-</section>
 
-<!-- PET PROJECTS -->
-<section id="pet">
-  <div class="section-header reveal">
-    <span class="section-num">04</span>
-    <h2 class="section-title">実験</h2>
-  </div>
   <div class="pet-empty reveal">
-    <p>まだ空だが、長くはない</p>
-    <span>Здесь пока пусто, но не надолго · Пространство для будущих экспериментов</span>
+    <p data-i18n="pet.p">Здесь пока пусто, но не надолго.</p>
+    <span data-i18n="pet.span">Пространство зарезервировано для будущих экспериментов.</span>
   </div>
-</section>
+</div>
+<div class="comments-section">
+  <div class="comments-head" data-i18n="comments.title">Обсуждение</div>
+  <div class="giscus-mount" data-giscus-term="pet"></div>
+</div>
+</div>
 
 <!-- CONTACT -->
-<section id="contact">
+<div class="page-view" data-page="contact" hidden>
+<div class="page-section">
   <div class="section-header reveal">
-    <span class="section-num">05</span>
-    <h2 class="section-title">連絡</h2>
+    <span class="section-num">03</span>
+    <h2 class="section-title" data-i18n="contact.title">Контакт</h2>
   </div>
   <div class="contact-grid reveal">
-    <p class="contact-text">
+    <p class="contact-text" data-i18n="contact.lead">
       Открыт для обсуждений, коллабораций и просто хороших разговоров о софте.
       Если наши взгляды совпадают — <em>напиши</em>.
     </p>
@@ -1018,204 +328,31 @@
       </a>
     </div>
   </div>
-</section>
+</div>
+<div class="comments-section">
+  <div class="comments-head" data-i18n="comments.title">Обсуждение</div>
+  <div class="giscus-mount" data-giscus-term="contact"></div>
+</div>
+</div>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
   <span>© 2026 アイダ ミール · krwg</span>
-  <span><a href="https://github.com/krwg" target="_blank">github.com/krwg</a></span>
+  <a href="https://github.com/krwg" target="_blank" rel="noopener">github.com/krwg</a>
+  <div class="footer-season">
+    <span class="footer-season-label" data-i18n="footer.season">Сезон</span>
+    <button type="button" class="season-btn is-active" data-season="auto" data-i18n="footer.auto">Авто</button>
+    <button type="button" class="season-btn" data-season="spring" data-i18n="footer.spring">Весна</button>
+    <button type="button" class="season-btn" data-season="summer" data-i18n="footer.summer">Лето</button>
+    <button type="button" class="season-btn" data-season="autumn" data-i18n="footer.autumn">Осень</button>
+    <button type="button" class="season-btn" data-season="winter" data-i18n="footer.winter">Зима</button>
+  </div>
 </footer>
+</div>
 
-<script>
-  // ===== SAKURA PARTICLE SYSTEM =====
-  const canvas = document.getElementById('sakura-canvas');
-  const ctx = canvas.getContext('2d');
-  let width, height;
-  let petals = [];
-  let branches = [];
-
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  class Petal {
-    constructor() {
-      this.reset();
-    }
-
-    reset() {
-      this.x = Math.random() * width;
-      this.y = -20;
-      this.size = Math.random() * 4 + 2;
-      this.speedY = Math.random() * 0.8 + 0.3;
-      this.speedX = Math.random() * 1.5 - 0.75;
-      this.rotation = Math.random() * Math.PI * 2;
-      this.rotationSpeed = (Math.random() - 0.5) * 0.03;
-      this.opacity = Math.random() * 0.4 + 0.1;
-      this.swayFreq = Math.random() * 0.02 + 0.01;
-      this.swayAmp = Math.random() * 1.5 + 0.5;
-      this.time = Math.random() * 1000;
-      this.color = Math.random() > 0.5 ? '#d4a5a5' : '#c45c6a';
-    }
-
-    update() {
-      this.time++;
-      this.y += this.speedY;
-      this.x += this.speedX + Math.sin(this.time * this.swayFreq) * this.swayAmp * 0.3;
-      this.rotation += this.rotationSpeed;
-
-      if (this.y > height + 20) {
-        this.reset();
-      }
-    }
-
-    draw() {
-      ctx.save();
-      ctx.translate(this.x, this.y);
-      ctx.rotate(this.rotation);
-      ctx.globalAlpha = this.opacity;
-      ctx.fillStyle = this.color;
-
-      // Petal shape (ellipse with slight point)
-      ctx.beginPath();
-      ctx.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Inner detail
-      ctx.globalAlpha = this.opacity * 0.5;
-      ctx.fillStyle = '#b07080';
-      ctx.beginPath();
-      ctx.ellipse(0, 0, this.size * 0.4, this.size * 0.2, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.restore();
-    }
-  }
-
-  // Create petals
-  for (let i = 0; i < 60; i++) {
-    const p = new Petal();
-    p.y = Math.random() * height;
-    petals.push(p);
-  }
-
-  // Branch sway
-  class Branch {
-    constructor(x, y, length, angle, depth) {
-      this.x = x;
-      this.y = y;
-      this.length = length;
-      this.angle = angle;
-      this.depth = depth;
-      this.swayOffset = Math.random() * Math.PI * 2;
-      this.swaySpeed = 0.002 + Math.random() * 0.003;
-    }
-
-    draw(time) {
-      const sway = Math.sin(time * this.swaySpeed + this.swayOffset) * 0.03 * (4 - this.depth);
-      const endX = this.x + Math.cos(this.angle + sway) * this.length;
-      const endY = this.y + Math.sin(this.angle + sway) * this.length;
-
-      ctx.save();
-      ctx.globalAlpha = 0.08 - this.depth * 0.015;
-      ctx.strokeStyle = '#c45c6a';
-      ctx.lineWidth = 3 - this.depth;
-      ctx.lineCap = 'round';
-      ctx.beginPath();
-      ctx.moveTo(this.x, this.y);
-      ctx.quadraticCurveTo(
-        (this.x + endX) / 2 + Math.sin(time * 0.001) * 5,
-        (this.y + endY) / 2,
-        endX, endY
-      );
-      ctx.stroke();
-      ctx.restore();
-
-      if (this.depth < 3) {
-        const branch1 = new Branch(endX, endY, this.length * 0.7, this.angle - 0.4, this.depth + 1);
-        const branch2 = new Branch(endX, endY, this.length * 0.6, this.angle + 0.5, this.depth + 1);
-        branch1.draw(time);
-        branch2.draw(time);
-      }
-    }
-  }
-
-  // Static decorative branches
-  const mainBranches = [
-    new Branch(width * 0.85, height * 0.3, 120, -Math.PI / 2, 0),
-    new Branch(width * 0.9, height * 0.5, 90, -Math.PI / 2 - 0.3, 0),
-    new Branch(width * 0.15, height * 0.2, 100, -Math.PI / 2 + 0.2, 0),
-  ];
-
-  let frame = 0;
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    frame++;
-
-    // Draw branches
-    mainBranches.forEach(b => b.draw(frame));
-
-    // Draw petals
-    petals.forEach(p => {
-      p.update();
-      p.draw();
-    });
-
-    requestAnimationFrame(animate);
-  }
-  animate();
-
-  // ===== AGE TIMER =====
-  const birth = new Date('2004-08-03T00:00:00').getTime();
-  const timerEl = document.getElementById('age-timer');
-
-  function updateTimer() {
-    const now = Date.now();
-    const diff = now - birth;
-    const years = Math.floor(diff / (365.25 * 24 * 60 * 60 * 1000));
-    const remainder = diff % (365.25 * 24 * 60 * 60 * 1000);
-    const days = Math.floor(remainder / (24 * 60 * 60 * 1000));
-    const ms = remainder % (24 * 60 * 60 * 1000);
-    timerEl.textContent = years + '.' + String(days).padStart(3, '0') + '.' + String(ms).padStart(8, '0');
-    requestAnimationFrame(updateTimer);
-  }
-  updateTimer();
-
-  // ===== SCROLL REVEAL =====
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  reveals.forEach(el => observer.observe(el));
-
-  // ===== NAV HIGHLIGHT =====
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('nav a');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      if (scrollY >= sectionTop - 200) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.style.color = '';
-      if (link.getAttribute('href') === '#' + current) {
-        link.style.color = 'var(--fg)';
-      }
-    });
-  });
-</script>
-
+<script type="module" src="assets/scene-boot.js"></script>
+<script src="assets/graph.js"></script>
+<script src="assets/krwg.js"></script>
 </body>
 </html>
