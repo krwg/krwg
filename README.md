@@ -25,9 +25,9 @@
 <td width="50%" valign="top" style="padding: 20px; border-right: 1px solid #333333;">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=12&duration=800&pause=300&color=FFFFFF&background=00000000&center=false&vCenter=true&multiline=true&repeat=true&width=480&height=380&lines=krwg%40node%3A~%24+systemctl+start+mesh-core;%5B++++OK++++%5D+signed+artifact+verification;%5B++++OK++++%5D+mesh+trust+propagation;%5B++++OK++++%5D+decentralized+distribution;%5B++++OK++++%5D+runtime+integrity+checks;%5B++++OK++++%5D+cryptographic+build+identity;%5B++++OK++++%5D+low-level+infrastructure;%5B++++OK++++%5D+experimental+protocol+design;%5B++++OK++++%5D+deterministic+release+pipeline;%5B++++OK++++%5D+secure+desktop+tooling;%5B++++OK++++%5D+BLIP+neural+image+captioning+loaded;%5B++++OK++++%5D+Cultiva+agriculture+monitoring+active;%5B++++OK++++%5D+FileStorage+distributed+shard+mount;%5B++++OK++++%5D+Tiver+temporal+event+engine+running;%5B++++OK++++%5D+JustCalc+deterministic+math+core;%5B++++OK++++%5D+SpotiFLACNeo+audio+pipeline+ready;%5B++READY+++%5D+trust+level+verified;%5B++READY+++%5D+all+systems+nominal">
-  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=12&duration=800&pause=300&color=24292F&background=00000000&center=false&vCenter=true&multiline=true&repeat=true&width=480&height=380&lines=krwg%40node%3A~%24+systemctl+start+mesh-core;%5B++++OK++++%5D+signed+artifact+verification;%5B++++OK++++%5D+mesh+trust+propagation;%5B++++OK++++%5D+decentralized+distribution;%5B++++OK++++%5D+runtime+integrity+checks;%5B++++OK++++%5D+cryptographic+build+identity;%5B++++OK++++%5D+low-level+infrastructure;%5B++++OK++++%5D+experimental+protocol+design;%5B++++OK++++%5D+deterministic+release+pipeline;%5B++++OK++++%5D+secure+desktop+tooling;%5B++++OK++++%5D+BLIP+neural+image+captioning+loaded;%5B++++OK++++%5D+Cultiva+agriculture+monitoring+active;%5B++++OK++++%5D+FileStorage+distributed+shard+mount;%5B++++OK++++%5D+Tiver+temporal+event+engine+running;%5B++++OK++++%5D+JustCalc+deterministic+math+core;%5B++++OK++++%5D+SpotiFLACNeo+audio+pipeline+ready;%5B++READY+++%5D+trust+level+verified;%5B++READY+++%5D+all+systems+nominal">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=12&duration=800&pause=300&color=FFFFFF&background=00000000&center=false&vCenter=true&multiline=true&repeat=true&width=480&height=380&lines=krwg%40node%3A~%24+systemctl+start+mesh-core;%5B++++OK++++%5D+signed+artifact+verification;%5B++++OK++++%5D+mesh+trust+propagation;%5B++++OK++++%5D+decentralized+distribution;%5B++++OK++++%5D+runtime+integrity+checks;%5B++++OK++++%5D+cryptographic+build+identity;%5B++++OK++++%5D+low-level+infrastructure;%5B++++OK++++%5D+experimental+protocol+design;%5B++++OK++++%5D+deterministic+release+pipeline;%5B++++OK++++%5D+secure+desktop+tooling;%5B++++OK++++%5D+BLIP+neural+image+captioning+loaded;%5B++++OK++++%5D+Cultiva+agriculture+monitoring+active;%5B++++OK++++%5D+FileStorage+distributed+shard+mount;%5B++++OK++++%5D+Tiver+temporal+event+engine+running;%5B++++OK++++%5D+JustCalc+deterministic+math+core;%5B++++OK++++%5D+SpotiFLACNeo+audio+pipeline+ready;%5B++READY+++%5D+trust+level+verified;%5B++READY+++%5D+all+systems+nominal" alt="Terminal System Boot">
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=12&duration=800&pause=300&color=FFFFFF&background=00000000&center=false&vCenter=true&multiline=true&repeat=true&width=480&height=380&lines=root%40arch%3A~%23+systemctl+start+systemd-boot;%5B++++OK++++%5D+UEFI+secure+boot+verified;%5B++++OK++++%5D+mkinitcpio+hooks+loaded;%5B++++OK++++%5D+pacman+keyring+initialized;%5B++++OK++++%5D+networkmanager+online;%5B++++OK++++%5D+pipewire+audio+subsystem;%5B++++OK++++%5D+hyprland+compositor+ready;%5B++++OK++++%5D+waybar+status+bar+active;%5B++++OK++++%5D+foot+terminal+server;%5B++++OK++++%5D+mako+notification+daemon;%5B++++OK++++%5D+wofi+launcher+available;%5B++++OK++++%5D+swaylock+idle+guard;%5B++++OK++++%5D+grimblast+screenshot+tool;%5B++++OK++++%5D+wl-clipboard+sync+engine;%5B++++OK++++%5D+blueman+bluetooth+manager;%5B++++OK++++%5D+openssh+daemon+listening;%5B++READY+++%5D+all+systems+nominal;%5B++READY+++%5D+arch+linux+rolling">
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=12&duration=800&pause=300&color=24292F&background=00000000&center=false&vCenter=true&multiline=true&repeat=true&width=480&height=380&lines=root%40arch%3A~%23+systemctl+start+systemd-boot;%5B++++OK++++%5D+UEFI+secure+boot+verified;%5B++++OK++++%5D+mkinitcpio+hooks+loaded;%5B++++OK++++%5D+pacman+keyring+initialized;%5B++++OK++++%5D+networkmanager+online;%5B++++OK++++%5D+pipewire+audio+subsystem;%5B++++OK++++%5D+hyprland+compositor+ready;%5B++++OK++++%5D+waybar+status+bar+active;%5B++++OK++++%5D+foot+terminal+server;%5B++++OK++++%5D+mako+notification+daemon;%5B++++OK++++%5D+wofi+launcher+available;%5B++++OK++++%5D+swaylock+idle+guard;%5B++++OK++++%5D+grimblast+screenshot+tool;%5B++++OK++++%5D+wl-clipboard+sync+engine;%5B++++OK++++%5D+blueman+bluetooth+manager;%5B++++OK++++%5D+openssh+daemon+listening;%5B++READY+++%5D+all+systems+nominal;%5B++READY+++%5D+arch+linux+rolling">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=12&duration=800&pause=300&color=FFFFFF&background=00000000&center=false&vCenter=true&multiline=true&repeat=true&width=480&height=380&lines=root%40arch%3A~%23+systemctl+start+systemd-boot;%5B++++OK++++%5D+UEFI+secure+boot+verified;%5B++++OK++++%5D+mkinitcpio+hooks+loaded;%5B++++OK++++%5D+pacman+keyring+initialized;%5B++++OK++++%5D+networkmanager+online;%5B++++OK++++%5D+pipewire+audio+subsystem;%5B++++OK++++%5D+hyprland+compositor+ready;%5B++++OK++++%5D+waybar+status+bar+active;%5B++++OK++++%5D+foot+terminal+server;%5B++++OK++++%5D+mako+notification+daemon;%5B++++OK++++%5D+wofi+launcher+available;%5B++++OK++++%5D+swaylock+idle+guard;%5B++++OK++++%5D+grimblast+screenshot+tool;%5B++++OK++++%5D+wl-clipboard+sync+engine;%5B++++OK++++%5D+blueman+bluetooth+manager;%5B++++OK++++%5D+openssh+daemon+listening;%5B++READY+++%5D+all+systems+nominal;%5B++READY+++%5D+arch+linux+rolling" alt="Arch Linux Boot">
 </picture>
 
 </td>
@@ -47,26 +47,21 @@
 
 </td>
 </tr>
-</table>
-
-<br>
-
-<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #000000; border: 1px solid #333333;">
 <tr>
-<td width="50%" align="center" valign="top" style="padding: 20px; border-right: 1px solid #333333;">
+<td width="50%" align="center" valign="top" style="padding: 20px; border-top: 1px solid #333333; border-right: 1px solid #333333;">
 
 <img
   width="400"
-  src="https://github-readme-stats-eight-theta.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF&border_color=000000&v=3"
+  src="https://github-readme-stats-eight-theta.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF&border_color=000000&v=4"
   alt="GitHub Stats"
 />
 
 </td>
-<td width="50%" align="center" valign="top" style="padding: 20px;">
+<td width="50%" align="center" valign="top" style="padding: 20px; border-top: 1px solid #333333;">
 
 <img
   width="400"
-  src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&border_color=000000&v=3"
+  src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&border_color=000000&v=4"
   alt="Top Languages"
 />
 
