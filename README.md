@@ -52,8 +52,6 @@
 
 ---
 
-## language Matrix
-
 <div align="center">
   <img
     height="170"
@@ -67,8 +65,6 @@
   />
 </div>
 
-## runtime stack
-
 <div align="center">
   <img
     src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark"
@@ -76,14 +72,6 @@
   />
 </div>
 
-## current Focus
-
-```bash
-> STATUS: ONLINE
-> BUILDING: XXX
-> EXPLORING: XXX
-> STACK: XXX
-```
 
 <div align="center">
   <a href="https://github.com/krwg?tab=repositories">all repositories</a> ·
