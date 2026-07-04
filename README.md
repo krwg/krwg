@@ -49,3 +49,44 @@
 </td>
 </tr>
 </table>
+
+---
+
+## language Matrix
+
+<div align="center">
+  <img
+    height="170"
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=10&hide_border=true&theme=github_dark&bg_color=00000000&title_color=ffffff&text_color=ffffff"
+    alt="Top Languages"
+  />
+  <img
+    height="170"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=krwg&theme=github_dark"
+    alt="Repos per Language"
+  />
+</div>
+
+## runtime stack
+
+<div align="center">
+  <img
+    src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark"
+    alt="Tech Stack"
+  />
+</div>
+
+## current Focus
+
+```bash
+> STATUS: ONLINE
+> BUILDING: XXX
+> EXPLORING: XXX
+> STACK: XXX
+```
+
+<div align="center">
+  <a href="https://github.com/krwg?tab=repositories">all repositories</a> ·
+  <a href="https://krwg.github.io/piligrim/">live demo</a>
+</div>
+
