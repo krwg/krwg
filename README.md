@@ -50,10 +50,6 @@
 </tr>
 </table>
 
----
-
-<br>
-
 <div align="center">
 
 <table>
@@ -77,12 +73,6 @@
     src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark"
     alt="Tech Stack"
   />
-
-  <br><br>
-
-  <a href="https://github.com/krwg?tab=repositories" style="color: #FFFFFF; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 14px;">all repositories</a>
-  <span style="color: #30363D;"> · </span>
-  <a href="https://krwg.github.io/piligrim/" style="color: #FFFFFF; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 14px;">live demo</a>
 
 </td>
 </tr>
