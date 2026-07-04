@@ -1,3 +1,5 @@
+<div align="center">
+
 <picture>
   <source
     media="(prefers-color-scheme: dark)"
@@ -15,6 +17,8 @@
 </picture>
 
 <br><br>
+
+</div>
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
@@ -49,22 +53,26 @@
 
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&bg_color=FFFFFF&title_color=1F2328&text_color=1F2328&icon_color=1F2328&ring_color=1F2328">
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF" alt="GitHub Stats">
-</picture>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #161B22; border: 1px solid #30363D; border-radius: 6px;">
+<tr>
+<td width="50%" align="center" valign="top" style="padding: 20px; border-right: 1px solid #30363D;">
 
-&nbsp;&nbsp;&nbsp;&nbsp;
+<img width="400" src="https://github-readme-stats.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&theme=dark&bg_color=161B22&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF&border_color=161B22&border_radius=0" alt="GitHub Stats">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&bg_color=FFFFFF&title_color=1F2328&text_color=1F2328">
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF" alt="Top Languages">
-</picture>
+</td>
+<td width="50%" align="center" valign="top" style="padding: 20px;">
 
-<br><br>
+<img width="400" src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=161B22&title_color=FFFFFF&text_color=FFFFFF&border_color=161B22&border_radius=0" alt="Top Languages">
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center" style="padding: 20px; border-top: 1px solid #30363D;">
 
 <img src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark" alt="Tech Stack">
+
+</td>
+</tr>
+</table>
 
 </div>
