@@ -1,0 +1,40 @@
+name: Update README cache-bust
+
+on:
+  push:
+    branches: [main, master]
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update cache-bust timestamp
+        run: |
+          TIMESTAMP=$(date +%s)
+          sed -i "s/?v=[0-9]*/?v=${TIMESTAMP}/g" README.md
+          echo "Updated cache-bust to: ${TIMESTAMP}"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git add README.md
+          git commit -m "chore: bump cache-bust timestamp [skip ci]"
+          git push
