@@ -20,7 +20,7 @@
 
 </div>
 
-<table width="100%" style="background-color: #000000; border: 1px solid #333333; border-radius: 6px;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #000000; border: 1px solid #333333;">
 <tr>
 <td width="50%" valign="top" style="padding: 20px; border-right: 1px solid #333333;">
 
@@ -49,32 +49,27 @@
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center" style="padding: 24px; border-top: 1px solid #333333;">
-
-<table width="100%">
-<tr>
-<td width="50%" align="center" valign="top">
+<td width="50%" align="center" valign="top" style="padding: 20px; border-top: 1px solid #333333; border-right: 1px solid #333333;">
 
 <img
   width="400"
-  src="https://github-readme-stats-eight-theta.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF"
+  src="https://github-readme-stats-eight-theta.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&theme=transparent&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF"
   alt="GitHub Stats"
 />
 
 </td>
-<td width="50%" align="center" valign="top">
+<td width="50%" align="center" valign="top" style="padding: 20px; border-top: 1px solid #333333;">
 
 <img
   width="400"
-  src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF"
+  src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=transparent&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF"
   alt="Top Languages"
 />
 
 </td>
 </tr>
-</table>
-
-<br>
+<tr>
+<td colspan="2" align="center" style="padding: 20px; border-top: 1px solid #333333;">
 
 <img
   src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark"
