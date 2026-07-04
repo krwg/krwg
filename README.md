@@ -50,9 +50,11 @@
 </tr>
 </table>
 
+<br>
+
 <div align="center">
 
-<table>
+<table width="100%">
 <tr>
 <td align="center" style="background-color: #000000; border: 1px solid #333333; border-radius: 6px; padding: 24px;">
 
@@ -64,7 +66,7 @@
   <br><br>
 
   <img
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF"
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF"
     alt="Top Languages"
   />
 
@@ -74,12 +76,6 @@
     src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark"
     alt="Tech Stack"
   />
-
-  <br><br>
-
-  <a href="https://github.com/krwg?tab=repositories" style="color: #888888; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 12px;">all repositories</a>
-  <span style="color: #333333;"> · </span>
-  <a href="https://krwg.github.io/piligrim/" style="color: #888888; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 12px;">live demo</a>
 
 </td>
 </tr>
