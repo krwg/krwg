@@ -1,4 +1,3 @@
-
 <div align="center">
 
 <picture>
@@ -53,14 +52,14 @@
 <td colspan="2" align="center" style="padding: 24px; border-top: 1px solid #333333;">
 
 <img
-  src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF"
+  src="https://github-readme-stats.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF"
   alt="GitHub Stats"
 />
 
 &nbsp;&nbsp;&nbsp;&nbsp;
 
 <img
-  src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF"
+  src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF"
   alt="Top Languages"
 />
 
