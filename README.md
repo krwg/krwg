@@ -52,29 +52,40 @@
 
 ---
 
+<br>
+
 <div align="center">
+
+<table>
+<tr>
+<td align="center" style="background-color: #0D1117; border: 1px solid #30363D; border-radius: 12px; padding: 20px;">
+
   <img
     height="170"
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=10&hide_border=true&theme=github_dark&bg_color=00000000&title_color=ffffff&text_color=ffffff"
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=10&hide_border=true&theme=dark&bg_color=0D1117&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF"
     alt="Top Languages"
   />
   <img
     height="170"
-    src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=krwg&theme=github_dark"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=krwg&theme=dark&bg_color=0D1117"
     alt="Repos per Language"
   />
-</div>
 
-<div align="center">
+  <br><br>
+
   <img
     src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark"
     alt="Tech Stack"
   />
+
+  <br><br>
+
+  <a href="https://github.com/krwg?tab=repositories" style="color: #FFFFFF; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 14px;">all repositories</a>
+  <span style="color: #30363D;"> · </span>
+  <a href="https://krwg.github.io/piligrim/" style="color: #FFFFFF; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 14px;">live demo</a>
+
+</td>
+</tr>
+</table>
+
 </div>
-
-
-<div align="center">
-  <a href="https://github.com/krwg?tab=repositories">all repositories</a> ·
-  <a href="https://krwg.github.io/piligrim/">live demo</a>
-</div>
-
