@@ -1,3 +1,4 @@
+
 <div align="center">
 
 <picture>
@@ -20,9 +21,9 @@
 
 </div>
 
-<table width="100%">
+<table width="100%" style="background-color: #000000; border: 1px solid #333333; border-radius: 6px;">
 <tr>
-<td width="50%" valign="top">
+<td width="50%" valign="top" style="padding: 20px; border-right: 1px solid #333333;">
 
 <img
   src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=12&duration=800&pause=300&color=FFFFFF&background=00000000&center=false&vCenter=true&multiline=true&repeat=true&width=480&height=380&lines=krwg%40node%3A~%24+systemctl+start+mesh-core;%5B++++OK++++%5D+signed+artifact+verification;%5B++++OK++++%5D+mesh+trust+propagation;%5B++++OK++++%5D+decentralized+distribution;%5B++++OK++++%5D+runtime+integrity+checks;%5B++++OK++++%5D+cryptographic+build+identity;%5B++++OK++++%5D+low-level+infrastructure;%5B++++OK++++%5D+experimental+protocol+design;%5B++++OK++++%5D+deterministic+release+pipeline;%5B++++OK++++%5D+secure+desktop+tooling;%5B++++OK++++%5D+BLIP+neural+image+captioning+loaded;%5B++++OK++++%5D+Cultiva+agriculture+monitoring+active;%5B++++OK++++%5D+FileStorage+distributed+shard+mount;%5B++++OK++++%5D+Tiver+temporal+event+engine+running;%5B++++OK++++%5D+JustCalc+deterministic+math+core;%5B++++OK++++%5D+SpotiFLACNeo+audio+pipeline+ready;%5B++READY+++%5D+trust+level+verified;%5B++READY+++%5D+all+systems+nominal"
@@ -30,7 +31,7 @@
 />
 
 </td>
-<td width="50%" valign="top" align="center">
+<td width="50%" valign="top" align="center" style="padding: 20px;">
 
 <br>
 
@@ -48,37 +49,28 @@
 
 </td>
 </tr>
-</table>
-
-<br>
-
-<div align="center" style="width: 100%;">
-
-<table width="100%">
 <tr>
-<td align="center" style="background-color: #000000; border: 1px solid #333333; border-radius: 6px; padding: 24px;">
+<td colspan="2" align="center" style="padding: 24px; border-top: 1px solid #333333;">
 
-  <img
-    src="https://github-readme-stats.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF"
-    alt="GitHub Stats"
-  />
+<img
+  src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF"
+  alt="GitHub Stats"
+/>
 
-  <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;
 
-  <img
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF"
-    alt="Top Languages"
-  />
+<img
+  src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF"
+  alt="Top Languages"
+/>
 
-  <br><br>
+<br><br>
 
-  <img
-    src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark"
-    alt="Tech Stack"
-  />
+<img
+  src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark"
+  alt="Tech Stack"
+/>
 
 </td>
 </tr>
 </table>
-
-</div>
