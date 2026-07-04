@@ -51,19 +51,30 @@
 <tr>
 <td colspan="2" align="center" style="padding: 24px; border-top: 1px solid #333333;">
 
+<table width="100%">
+<tr>
+<td width="50%" align="center" valign="top">
+
 <img
+  width="400"
   src="https://github-readme-stats-eight-theta.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF"
   alt="GitHub Stats"
 />
 
-&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td width="50%" align="center" valign="top">
 
 <img
+  width="400"
   src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF"
   alt="Top Languages"
 />
 
-<br><br>
+</td>
+</tr>
+</table>
+
+<br>
 
 <img
   src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark"
