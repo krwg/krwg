@@ -52,14 +52,14 @@
 
 <br>
 
-<div align="center">
+<div align="center" style="width: 100%;">
 
 <table width="100%">
 <tr>
 <td align="center" style="background-color: #000000; border: 1px solid #333333; border-radius: 6px; padding: 24px;">
 
   <img
-    src="https://github-readme-stats.vercel.app/api?username=krwg&show_icons=true&hide=stars&count_private=true&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF"
+    src="https://github-readme-stats.vercel.app/api?username=krwg&show_icons=true&count_private=true&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF"
     alt="GitHub Stats"
   />
 
