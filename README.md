@@ -54,17 +54,18 @@
 
 <table>
 <tr>
-<td align="center" style="background-color: #0D1117; border: 1px solid #30363D; border-radius: 12px; padding: 20px;">
+<td align="center" style="background-color: #000000; border: 1px solid #333333; border-radius: 6px; padding: 24px;">
 
   <img
-    height="170"
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=10&hide_border=true&theme=dark&bg_color=0D1117&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF"
-    alt="Top Languages"
+    src="https://github-readme-stats.vercel.app/api?username=krwg&show_icons=true&hide=stars&count_private=true&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&ring_color=FFFFFF"
+    alt="GitHub Stats"
   />
+
+  <br><br>
+
   <img
-    height="170"
-    src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=krwg&theme=dark&bg_color=0D1117"
-    alt="Repos per Language"
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=krwg&layout=compact&langs_count=8&hide_border=true&theme=dark&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF"
+    alt="Top Languages"
   />
 
   <br><br>
@@ -73,6 +74,12 @@
     src="https://skillicons.dev/icons?i=ts,js,python,nodejs,react,electron,postgres,docker,linux,bash,git,github,vscode&theme=dark"
     alt="Tech Stack"
   />
+
+  <br><br>
+
+  <a href="https://github.com/krwg?tab=repositories" style="color: #888888; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 12px;">all repositories</a>
+  <span style="color: #333333;"> · </span>
+  <a href="https://krwg.github.io/piligrim/" style="color: #888888; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 12px;">live demo</a>
 
 </td>
 </tr>
