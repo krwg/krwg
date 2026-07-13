@@ -3,15 +3,15 @@
 <picture>
   <source
     media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/krwg/krwg/output/github-contribution-grid-snake-dark.svg?v=1783883700"
+    srcset="https://raw.githubusercontent.com/krwg/krwg/output/github-contribution-grid-snake-dark.svg?v=1783913916"
   />
   <source
     media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/krwg/krwg/output/github-contribution-grid-snake.svg?v=1783883700"
+    srcset="https://raw.githubusercontent.com/krwg/krwg/output/github-contribution-grid-snake.svg?v=1783913916"
   />
   <img
     alt="Contribution Snake"
-    src="https://raw.githubusercontent.com/krwg/krwg/output/github-contribution-grid-snake.svg?v=1783883700"
+    src="https://raw.githubusercontent.com/krwg/krwg/output/github-contribution-grid-snake.svg?v=1783913916"
     width="100%"
   />
 </picture>
