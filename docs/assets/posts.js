@@ -1,13 +1,15 @@
 (function () {
   'use strict';
 
-  /** Add Telegraph URLs or paths here — newest first. */
-  window.KRWG_TELEGRAPH = window.KRWG_TELEGRAPH || [];
+  window.KRWG_TELEGRAPH = window.KRWG_TELEGRAPH || [
+    'https://telegra.ph/Obnovlenie-sajta-10-12'
+  ];
 
   var TELEGRAPH_API = 'https://api.telegra.ph';
   var CACHE_URL = 'assets/data/posts-cache.json';
   var pageCache = new Map();
   var cachePromise = null;
+  var MARKS = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
 
   function esc(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -26,7 +28,7 @@
         var u = new URL(s);
         return decodeURIComponent(u.pathname.replace(/^\/+/, ''));
       }
-    } catch (e) { /* not a URL */ }
+    } catch (e) {}
     return decodeURIComponent(s.replace(/^\/+/, ''));
   }
 
@@ -106,18 +108,23 @@
     return (window.KRWG_TELEGRAPH || []).map(pathFromInput).filter(Boolean);
   }
 
-  function cardHtml(page) {
+  function cardHtml(page, index) {
     var path = page.path;
     var title = page.title || path;
     var desc = page.description || '';
-    var views = page.views ? page.views + ' ' + t('posts.views') : '';
-    return '<button type="button" class="post-card reveal" data-post-path="' + esc(path) + '">' +
+    var mark = MARKS[index] || String(index + 1);
+    return '<button type="button" class="post-card post-card--wa reveal" data-post-path="' + esc(path) + '">' +
+      '<span class="post-mark" aria-hidden="true">' + mark + '</span>' +
+      '<div class="post-card-inner">' +
+      '<div class="post-card-head">' +
+      '<span class="post-hanko" aria-hidden="true">筆</span>' +
       '<span class="post-card-tag">' + esc(t('posts.tag')) + '</span>' +
-      (views ? '<span class="post-card-views">' + esc(views) + '</span>' : '') +
+      '</div>' +
       '<h3 class="post-card-title">' + esc(title) + '</h3>' +
+      '<p class="post-reading" aria-hidden="true">記事</p>' +
       (desc ? '<p class="post-card-desc">' + esc(desc) + '</p>' : '') +
       '<span class="post-card-more">' + esc(t('posts.readMore')) + '</span>' +
-      '</button>';
+      '</div></button>';
   }
 
   function showList() {
@@ -147,7 +154,7 @@
         };
       });
     })).then(function (pages) {
-      grid.innerHTML = pages.map(cardHtml).join('');
+      grid.innerHTML = pages.map(function (page, i) { return cardHtml(page, i); }).join('');
       grid.querySelectorAll('[data-post-path]').forEach(function (btn) {
         btn.addEventListener('click', function () {
           location.hash = '#posts/' + encodeURIComponent(btn.getAttribute('data-post-path'));
@@ -173,7 +180,6 @@
       document.getElementById('postsArticleTitle').textContent = page.title || path;
       var meta = [];
       if (page.author_name) meta.push(t('posts.by') + ' ' + page.author_name);
-      if (page.views) meta.push(page.views + ' ' + t('posts.views'));
       document.getElementById('postsArticleMeta').textContent = meta.join(' · ');
       body.innerHTML = renderContent(page.content);
       var ext = document.getElementById('postsOpenTelegraph');

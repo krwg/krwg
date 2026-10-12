@@ -1,8 +1,7 @@
 #!/usr/bin/env node
-/**
- * Creates Giscus discussion threads for krwg site pages.
- * Usage: GH_TOKEN=ghp_... node scripts/ensure-giscus-discussions.mjs
- */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Giscus discussions · GH_TOKEN=… node scripts/ensure-giscus-discussions.mjs
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 const REPO = { owner: 'krwg', name: 'krwg' };
 const CATEGORY_NAME = 'General';
 const TERMS = ['krwg-bio', 'krwg-graph', 'krwg-pet', 'krwg-contact', 'krwg-posts'];

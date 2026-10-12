@@ -45,7 +45,7 @@
   <ul>
     <li><a href="#home" data-nav="home" data-i18n="nav.home">Главная</a></li>
     <li><a href="#bio" data-nav="bio" data-i18n="nav.bio">Биография</a></li>
-    <li><a href="#pet" data-nav="pet" data-i18n="nav.pet">Пет-проекты</a></li>
+    <li><a href="#pet" data-nav="pet" data-i18n="nav.pet">Избранные проекты</a></li>
     <li><a href="#contact" data-nav="contact" data-i18n="nav.contact">Контакт</a></li>
     <li><a href="#posts" data-nav="posts" data-i18n="nav.posts">Посты</a></li>
     <li><a href="#graph" data-nav="graph" data-i18n="nav.graph">Граф</a></li>
@@ -56,7 +56,7 @@
 <div class="mobile-drawer" id="mobileDrawer">
   <a href="#home" data-nav="home" data-i18n="nav.home">Главная</a>
   <a href="#bio" data-nav="bio" data-i18n="nav.bio">Биография</a>
-  <a href="#pet" data-nav="pet" data-i18n="nav.pet">Пет-проекты</a>
+  <a href="#pet" data-nav="pet" data-i18n="nav.pet">Избранные проекты</a>
   <a href="#contact" data-nav="contact" data-i18n="nav.contact">Контакт</a>
   <a href="#posts" data-nav="posts" data-i18n="nav.posts">Посты</a>
   <a href="#graph" data-nav="graph" data-i18n="nav.graph">Граф</a>
@@ -64,7 +64,6 @@
 
 <main>
 
-<!-- HOME -->
 <div class="page-view is-active" data-page="home">
 <section class="hero">
   <div class="hero-content">
@@ -91,7 +90,6 @@
 </section>
 </div>
 
-<!-- GRAPH -->
 <div class="page-view" data-page="graph" hidden>
 <div class="page-section graph-page">
   <div class="section-header reveal">
@@ -111,7 +109,6 @@
 </div>
 </div>
 
-<!-- BIO + STACK -->
 <div class="page-view" data-page="bio" hidden>
 <div class="page-section">
   <div class="section-header reveal">
@@ -144,46 +141,115 @@
   </div>
   <div class="bio-grid reveal">
     <div class="bio-text">
-      <p data-i18n="bio.p1">
-        Начал с желания создать свою социальную сеть — <strong>Tiver</strong>, 2021 год.
-        Шесть месяцев веб-разработки с другом, первая версия на чистом HTML/CSS/JS.
-        Это был не просто проект, а точка невозврата: я понял, что код — это способ
-        материализовать идеи.
-      </p>
-      <p data-i18n="bio.p2">
-        Дальше — Python, куча пет-проектов, <strong>JKeep</strong> на Tkinter,
-        кастомные темы для Telegram, погружение в сети и виртуальные машины.
-        Учёба и обязательства отодвинули хобби на полку, но не убили.
-      </p>
-      <p data-i18n="bio.p3">
-        Апрель 2026 — всё изменилось. <strong>Cultiva</strong>, изучение JS и Electron,
-        затем экосистема <strong>Floke</strong>. Сейчас — Rust, Tauri, RAG, SQL,
-        TypeScript, Ollama, устройство LLM. Каждый день — новый слой.
-      </p>
+      <section class="bio-chapter">
+        <h3 class="bio-chapter-title" data-i18n="bio.h.about">Обо мне</h3>
+        <p data-i18n="bio.about.1">Я разработчик программного обеспечения, создающий собственные приложения, инструменты и программные системы. Мой основной интерес — полный цикл разработки: от идеи и проектирования архитектуры до реализации интерфейса, организации хранения данных и интеграции отдельных компонентов в единую систему.</p>
+        <p data-i18n="bio.about.2">Я рассматриваю программирование не только как написание кода, но и как инструмент решения задач. Мне интересно разбираться в устройстве технологий, самостоятельно исследовать возможные подходы и создавать программное обеспечение, которое можно использовать в реальной работе, развивать и адаптировать под конкретные потребности.</p>
+      </section>
+
+      <section class="bio-chapter">
+        <h3 class="bio-chapter-title" data-i18n="bio.h.start">С чего всё началось</h3>
+        <p data-i18n="bio.start.1">Мой интерес к компьютерам появился раньше, чем сформировалось конкретное направление в разработке. Изначально меня привлекала возможность исследовать программную среду, изменять её под себя, разбираться в сетях и виртуальных машинах, экспериментировать с настройками и понимать, как устроены системы изнутри.</p>
+        <p data-i18n="bio.start.2">В 2021 году этот интерес перерос в первый проект — <strong>Tiver</strong>, социальную сеть, которую мы с другом начали разрабатывать на чистых HTML, CSS и без знания JavaScript. Работа над первой версией продолжалась около шести месяцев. Однако, к сожалению, как бывает нередко, проекты забрасываются. Сейчас её первая версия лежит по адресу <a href="https://github.com/EZH001/Tiver" target="_blank" rel="noopener">EZH001/Tiver</a>, а модернизированная, её современная версия <a href="https://github.com/krwg/tiver" target="_blank" rel="noopener">krwg/tiver</a> уже была сделана мной. Сейчас это больше витринный экспонат, напоминающий о первом проекте.</p>
+        <p data-i18n="bio.start.3">Tiver стал для меня важным этапом: я увидел, что программирование позволяет не просто изменять существующие решения, но и создавать собственные продукты с нуля. Идея, которая раньше существовала только в голове, могла постепенно превращаться в работающий интерфейс и функциональную систему.</p>
+        <p data-i18n="bio.start.4">После этого я продолжил изучать Python, создавать небольшие проекты, экспериментировать с Tkinter и разрабатывать собственные темы для Telegram. Параллельно углублялся в сетевые технологии и виртуализацию. Одним из моих проектов стал <strong>JKeep</strong> — приложение на Tkinter.</p>
+        <p data-i18n="bio.start.5">В определённый момент учёба и другие обязательства отодвинули личную разработку на второй план. Однако интерес к созданию программного обеспечения сохранился.</p>
+      </section>
+
+      <section class="bio-chapter">
+        <h3 class="bio-chapter-title" data-i18n="bio.h.return">Возвращение к разработке</h3>
+        <p data-i18n="bio.return.1">В апреле 2026 года я вернулся к активной работе над собственными проектами. На этот раз мой подход стал более системным: вместо отдельных экспериментов я начал уделять больше внимания архитектуре, структуре приложений, организации данных, расширяемости и долгосрочному развитию программных продуктов.</p>
+        <p data-i18n="bio.return.2">Одним из первых проектов этого этапа стала <a href="https://github.com/krwg/cultiva" target="_blank" rel="noopener">Cultiva</a> — офлайн-трекер привычек, построенный вокруг идеи последовательного развития. Работа над ним помогла мне углубиться в JavaScript и Electron, а также продумать структуру приложения, локальное хранение данных и возможность расширения функциональности через плагины.</p>
+        <p data-i18n="bio.return.3">Сегодня я рассматриваю каждый новый проект не только как возможность реализовать очередную идею, но и как способ лучше разобраться в инженерных задачах, проверить архитектурные решения и расширить собственный технический опыт.</p>
+      </section>
+
+      <section class="bio-chapter">
+        <h3 class="bio-chapter-title" data-i18n="bio.h.work">Чем я занимаюсь</h3>
+        <p data-i18n="bio.work.1">Моя работа не ограничивается одним типом приложений. Мне интересно разрабатывать как небольшие специализированные инструменты, так и более сложные системы с несколькими взаимосвязанными модулями.</p>
+        <p data-i18n="bio.work.2">В моём опыте — разработка приложений для настольных систем, работа с локальными базами данных, проектирование интерфейсов, создание инструментов автоматизации и реализация функциональности, ориентированной на конкретные практические задачи.</p>
+        <p data-i18n="bio.work.3">Отдельное направление — программное обеспечение для физических устройств. Например, я самостоятельно разрабатывал инструмент для подготовки текста и изображений к выводу на графический плоттер <a href="https://github.com/krwg/grbl-writer" target="_blank" rel="noopener">grbl-writer</a>: преобразования исходного содержимого в векторные траектории, пригодные для дальнейшего воспроизведения устройством. В рамках этого направления я также экспериментировал с созданием собственных шрифтов, в том числе с особенностями начертания, важными для воспроизведения текста плоттером.</p>
+        <p data-i18n="bio.work.4">Мне интересны задачи, в которых программная логика должна учитывать не только цифровое представление данных, но и результат физического действия: движение механизма, траекторию инструмента или особенности оборудования.</p>
+        <p data-i18n="bio.work.5">Другой важный вектор — разработка бизнес-систем. Я занимаюсь созданием собственной ERP-системы <a href="https://github.com/krwg/metrika" target="_blank" rel="noopener">Metrika</a>, проектируя прикладные модули, структуру данных, права доступа, рабочие процессы и взаимодействие компонентов. Здесь меня привлекает возможность самостоятельно разобраться в предметной области и построить программный инструмент, соответствующий реальным процессам, а не пытаться подогнать любую задачу под заранее заданную модель.</p>
+      </section>
+
+      <section class="bio-chapter">
+        <h3 class="bio-chapter-title" data-i18n="bio.h.approach">Инженерный подход</h3>
+        <p data-i18n="bio.approach.intro">В своих проектах я придерживаюсь нескольких принципов.</p>
+        <div class="bio-principles">
+          <div class="bio-principle">
+            <h4 data-i18n="bio.pr1.t">Самостоятельность в разработке</h4>
+            <p data-i18n="bio.pr1.d">Мне важно понимать, как устроено создаваемое программное обеспечение. Я стремлюсь самостоятельно проходить основные этапы разработки, разбираться в технических ограничениях и принимать архитектурные решения осознанно.</p>
+          </div>
+          <div class="bio-principle">
+            <h4 data-i18n="bio.pr2.t">Архитектура как основа развития</h4>
+            <p data-i18n="bio.pr2.d">Работающий прототип — лишь начало. При развитии проекта необходимо учитывать структуру данных, границы между модулями, права доступа, расширяемость и последствия новых технических решений.</p>
+          </div>
+          <div class="bio-principle">
+            <h4 data-i18n="bio.pr3.t">Приватность и локальная работа</h4>
+            <p data-i18n="bio.pr3.d">Я отдаю предпочтение решениям, которые предоставляют пользователю контроль над собственными данными и не требуют облачной инфраструктуры там, где без неё можно обойтись. По возможности я избегаю ненужной телеметрии и обязательных подписок как основы работы приложения.</p>
+          </div>
+          <div class="bio-principle">
+            <h4 data-i18n="bio.pr4.t">Внимание к интерфейсу</h4>
+            <p data-i18n="bio.pr4.d">Функциональность должна сопровождаться понятным взаимодействием. Интерфейс, логика приложения и внутренняя организация данных для меня являются частями одного продукта, а не независимыми задачами.</p>
+          </div>
+          <div class="bio-principle">
+            <h4 data-i18n="bio.pr5.t">Открытость и практическая ценность</h4>
+            <p data-i18n="bio.pr5.d">Мне близка идея программного обеспечения, которое можно изучать, развивать и адаптировать под собственные потребности. При этом техническая сложность сама по себе не является целью: важнее, какую задачу решает продукт и насколько последовательно он реализован.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bio-chapter">
+        <h3 class="bio-chapter-title" data-i18n="bio.h.tech">Технологии и развитие</h3>
+        <p data-i18n="bio.tech.1">В своей текущей работе я использую JavaScript, TypeScript, Python, HTML и CSS. Для разработки настольных приложений применяю Electron, а для локального хранения данных — SQLite.</p>
+        <p data-i18n="bio.tech.2">Сейчас я расширяю технический кругозор в направлении Rust и Tauri, изучаю подходы к построению приложений с использованием этих технологий, а также исследую RAG, локальные большие языковые модели и принципы устройства LLM.</p>
+        <p data-i18n="bio.tech.3">Мне интересно не просто интегрировать готовые инструменты, но и понимать их внутреннюю механику: как организована обработка данных, как компоненты взаимодействуют друг с другом, какие ограничения определяют архитектуру и где проходят границы применимости выбранного решения.</p>
+        <p data-i18n="bio.tech.4">Я рассматриваю развитие технических навыков как непрерывный процесс. Новые языки и инструменты для меня — не самоцель, а средства, которые помогают решать более широкий круг задач и выбирать подходящую технологию под конкретный проект.</p>
+      </section>
+
+      <section class="bio-chapter">
+        <h3 class="bio-chapter-title" data-i18n="bio.h.future">Куда я двигаюсь</h3>
+        <p data-i18n="bio.future.1">Моя долгосрочная цель — создавать собственные программные продукты и развивать их в устойчивые, взаимосвязанные решения. Я хочу продолжать углубляться в архитектуру программных систем и расширять опыт разработки приложений, которые решают реальные пользовательские и бизнес-задачи.</p>
+        <p data-i18n="bio.future.2">В перспективе я рассматриваю создание собственного бизнеса. Это может быть развитие собственных программных продуктов или разработка специализированного программного обеспечения для предприятий и других сфер деятельности.</p>
+        <p data-i18n="bio.future.3">Мне интересно находиться на пересечении инженерии и практики: изучать реальные процессы, находить в них задачи, которые можно решить программными средствами, и создавать инструменты, которые делают работу понятнее, удобнее и эффективнее.</p>
+        <p data-i18n="bio.future.4">Мой ориентир — самостоятельно создавать программное обеспечение, устройство которого я понимаю, назначение которого могу объяснить, а развитие которого не заканчивается на первой работающей версии.</p>
+      </section>
     </div>
-    <div class="bio-timeline">
+    <aside class="bio-timeline">
+      <div class="timeline-label" aria-hidden="true">年譜</div>
       <div class="timeline-item">
-        <div class="timeline-year">2021</div>
+        <div class="timeline-year-row">
+          <span class="timeline-kanji" aria-hidden="true">始</span>
+          <div class="timeline-year">2021</div>
+        </div>
         <div class="timeline-text" data-i18n="bio.t1">
-          Первый проект <a href="https://github.com/krwg/Tiver">Tiver</a> —
-          социальная сеть с другом. Шесть месяцев веб-разработки.
+          Первый проект <a href="https://github.com/EZH001/Tiver" target="_blank" rel="noopener">Tiver</a> —
+          социальная сеть с другом. Шесть месяцев на HTML/CSS.
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-year">2024</div>
+        <div class="timeline-year-row">
+          <span class="timeline-kanji" aria-hidden="true">探</span>
+          <div class="timeline-year">2024</div>
+        </div>
         <div class="timeline-text" data-i18n="bio.t2">
-          Telegram-канал krwg, <strong>JKeep</strong> на Python + Tkinter,
-          кастомные темы для Telegram, изучение сетей и VM.
+          Python, <strong>JKeep</strong> на Tkinter, темы для Telegram,
+          сети и виртуализация.
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-year">2026</div>
+        <div class="timeline-year-row">
+          <span class="timeline-kanji" aria-hidden="true">帰</span>
+          <div class="timeline-year">2026</div>
+        </div>
         <div class="timeline-text" data-i18n="bio.t3">
-          Возвращение. <strong>Cultiva</strong>, экосистема <strong>Floke Studio</strong>,
-          Rust, Tauri, локальный AI, RAG.
+          Возвращение. <a href="https://github.com/krwg/cultiva" target="_blank" rel="noopener">Cultiva</a>,
+          <a href="https://github.com/krwg/metrika" target="_blank" rel="noopener">Metrika</a>,
+          <a href="https://github.com/krwg/blip" target="_blank" rel="noopener">BLIP</a>,
+          Rust, Tauri, локальный AI.
         </div>
       </div>
-    </div>
+    </aside>
   </div>
   <div class="stack-block reveal">
     <div class="stack-label" data-i18n="stack.label">Стек</div>
@@ -210,59 +276,84 @@
 </div>
 </div>
 
-<!-- PET -->
 <div class="page-view" data-page="pet" hidden>
 <div class="page-section">
   <div class="section-header reveal">
     <span class="section-num">02</span>
-    <h2 class="section-title" data-i18n="pet.title">Пет-проекты</h2>
+    <h2 class="section-title" data-i18n="pet.title">Избранные проекты</h2>
   </div>
+  <p class="pet-lead reveal" data-i18n="pet.lead">Проекты, в которых я проверяю архитектурные решения и развиваю продукты за пределами первой рабочей версии.</p>
 
-  <div class="studio-in-pet reveal">
-    <div class="studio-in-pet-head">
-      <span class="studio-in-pet-tag">Floke Studio</span>
-      <h3 class="studio-in-pet-title" data-i18n="studio.blockTitle">Студия</h3>
-    </div>
-    <p class="studio-intro" data-i18n="studio.intro">
-      Независимая студия, основанная в 2026. Не набор пет-проектов, а <em>экосистема</em>
-      на машине пользователя: приложения, интеллект и игры — связаны одной философией
-      и одним автором.
-    </p>
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pillar-num">01 · Desktop</div>
-        <div class="pillar-title">Приложения</div>
-        <div class="pillar-desc" data-i18n="studio.p1d">
-          Софт на вашем компьютере. Senza, Cultiva, BLIP, Flint —
-          всё работает без облака и аккаунтов.
+  <div class="projects-grid reveal">
+    <article class="project-card project-card--wa">
+      <span class="project-mark" aria-hidden="true">一</span>
+      <div class="project-card-inner">
+        <div class="project-head">
+          <span class="project-hanko" data-i18n="pet.metrika.hanko">開発</span>
+          <span class="project-status" data-i18n="pet.metrika.status">В разработке</span>
         </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">02 · Intelligence</div>
-        <div class="pillar-title">Glyph</div>
-        <div class="pillar-desc" data-i18n="studio.p2d">
-          Локальный AI и метаданные. Offline-first интеллект,
-          который не требует загрузки в чужие дата-центры.
+        <h3 class="project-name">Metrika</h3>
+        <p class="project-reading" aria-hidden="true">メトリカ</p>
+        <p class="project-tagline" data-i18n="pet.metrika.tag">ERP-система</p>
+        <div class="project-desc">
+          <p data-i18n="pet.metrika.1">Metrika — мой проект в области автоматизации бизнес-процессов. Я разрабатываю его как локальную систему для управления различными аспектами деятельности организации.</p>
+          <p data-i18n="pet.metrika.2">В основе проекта лежат настольное приложение на Electron и локальная база данных SQLite. Архитектура предусматривает разделение данных организаций, пользовательские роли и разграничение доступа к операциям.</p>
+          <p data-i18n="pet.metrika.3">Система развивается в направлении управления складом, номенклатурой, поставками, сборкой, продажами, документами и взаимодействием с контрагентами. Важная часть работы — не только реализация отдельных функций, но и проектирование связей между сущностями, документами, рабочими интерфейсами и бизнес-процессами.</p>
+          <p data-i18n="pet.metrika.4">Metrika для меня — возможность изучать и применять на практике принципы построения прикладных информационных систем: от модели данных и прав доступа до пользовательских рабочих мест и интеграционных механизмов.</p>
         </div>
+        <div class="project-meta">Electron · SQLite · ERP</div>
+        <a href="https://github.com/krwg/metrika" class="project-link" target="_blank" rel="noopener">
+          GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-      <div class="pillar">
-        <div class="pillar-num">03 · Games</div>
-        <div class="pillar-title">Floke Engine</div>
-        <div class="pillar-desc" data-i18n="studio.p3d">
-          Игровое крыло студии. Без live service, battle pass и FOMO.
-          Просто игра, которую хочется дойти.
-        </div>
-      </div>
-    </div>
-    <a href="https://flokestudio.github.io/Floke/" class="studio-more-link" target="_blank" rel="noopener">
-      <span data-i18n="studio.more">Подробнее</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
+    </article>
 
-  <div class="pet-empty reveal">
-    <p data-i18n="pet.p">Здесь пока пусто, но не надолго.</p>
-    <span data-i18n="pet.span">Пространство зарезервировано для будущих экспериментов.</span>
+    <article class="project-card project-card--wa">
+      <span class="project-mark" aria-hidden="true">二</span>
+      <div class="project-card-inner">
+        <div class="project-head">
+          <span class="project-hanko project-hanko--live" data-i18n="pet.cultiva.hanko">現行</span>
+          <span class="project-status" data-i18n="pet.cultiva.status">Активный</span>
+        </div>
+        <h3 class="project-name">Cultiva</h3>
+        <p class="project-reading" aria-hidden="true">カルティヴァ</p>
+        <p class="project-tagline" data-i18n="pet.cultiva.tag">Офлайн-трекер привычек</p>
+        <div class="project-desc">
+          <p data-i18n="pet.cultiva.1">Cultiva — приложение для отслеживания привычек, в котором акцент сделан на локальном хранении данных, последовательности и долгосрочном использовании.</p>
+          <p data-i18n="pet.cultiva.2">Проект строится вокруг идеи постепенного развития: пользователь наблюдает за собственным прогрессом, а приложение представляет его как последовательный процесс, а не набор изолированных отметок.</p>
+          <p data-i18n="pet.cultiva.3">Помимо основной функциональности, я уделяю внимание расширяемости приложения и возможности развития через плагины. Для меня Cultiva — не просто утилита для привычек, но и площадка для работы с архитектурой настольного приложения, пользовательским опытом и модульным подходом к разработке.</p>
+        </div>
+        <div class="project-meta">Electron · JavaScript · Offline-first</div>
+        <a href="https://github.com/krwg/cultiva" class="project-link" target="_blank" rel="noopener">
+          GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <article class="project-card project-card--wa">
+      <span class="project-mark" aria-hidden="true">三</span>
+      <div class="project-card-inner">
+        <div class="project-head">
+          <span class="project-hanko" data-i18n="pet.blip.hanko">開発</span>
+          <span class="project-status" data-i18n="pet.blip.status">В разработке</span>
+        </div>
+        <h3 class="project-name">BLIP</h3>
+        <p class="project-reading" aria-hidden="true">ブリップ</p>
+        <p class="project-tagline" data-i18n="pet.blip.tag">Локальный мессенджер</p>
+        <div class="project-desc">
+          <p data-i18n="pet.blip.1">BLIP — проект в области коммуникационных приложений. Его направление — обмен сообщениями в локальной сети и исследование подходов к взаимодействию устройств без обязательной зависимости от централизованной облачной инфраструктуры.</p>
+          <p data-i18n="pet.blip.2">В этом проекте меня интересуют сетевое взаимодействие, организация обмена сообщениями и построение программной системы, в которой локальная работа и контроль пользователя над средой имеют принципиальное значение.</p>
+          <p data-i18n="pet.blip.3">BLIP отражает мой интерес к разработке не только пользовательских интерфейсов, но и системной логики, лежащей за ними.</p>
+        </div>
+        <div class="project-meta">Electron · WebRTC · LAN</div>
+        <a href="https://github.com/krwg/blip" class="project-link" target="_blank" rel="noopener">
+          GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
   </div>
 </div>
 <div class="comments-section">
@@ -271,7 +362,6 @@
 </div>
 </div>
 
-<!-- POSTS -->
 <div class="page-view" data-page="posts" hidden>
 <div class="page-section posts-page">
   <div id="postsListView">
@@ -300,7 +390,6 @@
 </div>
 </div>
 
-<!-- CONTACT -->
 <div class="page-view" data-page="contact" hidden>
 <div class="page-section">
   <div class="section-header reveal">
@@ -319,16 +408,10 @@
         <span class="contact-link-value">github.com/krwg</span>
         <span class="contact-link-arrow">→</span>
       </a>
-      <a href="https://t.me/flokestudio" class="contact-link" target="_blank">
+      <a href="mailto:getfloke@icloud.com" class="contact-link">
         <span class="contact-link-num">02</span>
-        <span class="contact-link-label">Telegram</span>
-        <span class="contact-link-value">@flokestudio</span>
-        <span class="contact-link-arrow">→</span>
-      </a>
-      <a href="mailto:getfloke@gmail.com" class="contact-link">
-        <span class="contact-link-num">03</span>
         <span class="contact-link-label">Email</span>
-        <span class="contact-link-value">getfloke@gmail.com</span>
+        <span class="contact-link-value">getfloke@icloud.com</span>
         <span class="contact-link-arrow">→</span>
       </a>
     </div>

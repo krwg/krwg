@@ -1,4 +1,4 @@
-const CACHE = 'krwg-v6';
+const CACHE = 'krwg-v7';
 const ASSETS = [
   './',
   './index.html',
