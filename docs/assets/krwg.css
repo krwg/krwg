@@ -862,8 +862,19 @@ html[data-reduced-motion="true"] .portrait-petal { animation: none; }
   margin-bottom: 2px;
 }
 
+.graph-tip-kind {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 .graph-tip-back {
   display: block;
+  margin-top: 4px;
   font-size: 9px;
   color: var(--fg-light);
   letter-spacing: 0.02em;
