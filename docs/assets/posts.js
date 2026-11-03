@@ -7,7 +7,7 @@
   ];
 
   var TELEGRAPH_API = 'https://api.telegra.ph';
-  var CACHE_URL = 'assets/data/posts-cache.json';
+  var CACHE_URL = 'assets/data/posts-cache.json?v=20261103b';
   var pageCache = new Map();
   var cachePromise = null;
   var MARKS = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];

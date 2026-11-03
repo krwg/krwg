@@ -76,9 +76,9 @@
     hub.forEach(function (n) {
       placed.push(Object.assign({}, n, { x: 0, y: 0, vx: 0, vy: 0 }));
     });
-    placed = placed.concat(placeRing(pages, 128, -Math.PI / 2));
-    placed = placed.concat(placeRing(projects, 210, -Math.PI / 2 + 0.15));
-    placed = placed.concat(placeRing(notes, 268, Math.PI / 5));
+    placed = placed.concat(placeRing(pages, 155, -Math.PI / 2));
+    placed = placed.concat(placeRing(projects, 265, -Math.PI / 2 + 0.2));
+    placed = placed.concat(placeRing(notes, 340, Math.PI / 5));
     return placed;
   }
 
@@ -117,13 +117,16 @@
     }
 
     function fitView() {
+      if (!W || !H || !state.nodes.length) return;
       var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
       state.nodes.forEach(function (n) {
-        minX = Math.min(minX, n.x - 36); maxX = Math.max(maxX, n.x + 36);
-        minY = Math.min(minY, n.y - 36); maxY = Math.max(maxY, n.y + 36);
+        minX = Math.min(minX, n.x - 48); maxX = Math.max(maxX, n.x + 48);
+        minY = Math.min(minY, n.y - 36); maxY = Math.max(maxY, n.y + 52);
       });
-      var pad = 56, bw = maxX - minX + pad * 2, bh = maxY - minY + pad * 2;
-      state.cam.scale = Math.min(W / bw, H / bh, 1.85) || 1;
+      var pad = 48;
+      var bw = Math.max(1, maxX - minX + pad * 2);
+      var bh = Math.max(1, maxY - minY + pad * 2);
+      state.cam.scale = Math.min((W * 0.92) / bw, (H * 0.92) / bh, 2.6) || 1;
       state.cam.x = W / 2 - ((minX + maxX) / 2) * state.cam.scale;
       state.cam.y = H / 2 - ((minY + maxY) / 2) * state.cam.scale;
     }
@@ -166,14 +169,14 @@
     }
 
     function tick() {
-      var rep = 520, spring = 0.014, damp = 0.9, center = 0.0025;
+      var rep = 680, spring = 0.011, damp = 0.88, center = 0.0018;
       for (var i = 0; i < state.nodes.length; i++) {
         for (var j = i + 1; j < state.nodes.length; j++) {
           var a = state.nodes[i], b = state.nodes[j];
           var dx = b.x - a.x, dy = b.y - a.y, dist = Math.hypot(dx, dy) || 0.01;
-          var minDist = (a.r + b.r) * 6;
+          var minDist = (a.r + b.r) * 9 + 28;
           var f = rep / (dist * dist);
-          if (dist < minDist) f += (minDist - dist) * 0.08;
+          if (dist < minDist) f += (minDist - dist) * 0.12;
           a.vx -= (dx / dist) * f; a.vy -= (dy / dist) * f;
           b.vx += (dx / dist) * f; b.vy += (dy / dist) * f;
         }
@@ -183,13 +186,16 @@
         var b = state.nodes.find(function (n) { return n.id === pair[1]; });
         if (!a || !b) return;
         var dx = b.x - a.x, dy = b.y - a.y;
-        a.vx += dx * spring; a.vy += dy * spring;
-        b.vx -= dx * spring; b.vy -= dy * spring;
+        var dist = Math.hypot(dx, dy) || 0.01;
+        var rest = (a.group === 'hub' || b.group === 'hub') ? 150 : 118;
+        var pull = (dist - rest) * spring;
+        a.vx += (dx / dist) * pull; a.vy += (dy / dist) * pull;
+        b.vx -= (dx / dist) * pull; b.vy -= (dy / dist) * pull;
       });
       state.nodes.forEach(function (n) {
         if (n === state.dragNode) return;
         if (n.group === 'hub') {
-          n.vx += -n.x * 0.04; n.vy += -n.y * 0.04;
+          n.vx += -n.x * 0.05; n.vy += -n.y * 0.05;
         } else {
           n.vx += -n.x * center; n.vy += -n.y * center;
         }
@@ -350,11 +356,20 @@
     window.addEventListener('resize', function () { if (state.active) { resize(); draw(); } }, { passive: true });
 
     return {
-      start: function () { state.active = true; resize(); reload(); loop(); },
+      start: function () {
+        state.active = true;
+        resize();
+        reload();
+        loop();
+        requestAnimationFrame(function () {
+          resize();
+          fitView();
+          draw();
+        });
+      },
       stop: function () { state.active = false; if (state.raf) cancelAnimationFrame(state.raf); },
       refreshLabels: refreshLabels,
-      fit: function () { fitView(); draw(); },
-      reset: function () { reload(); draw(); }
+      fit: function () { fitView(); draw(); }
     };
   }
 
@@ -369,16 +384,6 @@
       sim.stop();
     }
     sim.start();
-    var fitBtn = document.getElementById('graphFit');
-    var resetBtn = document.getElementById('graphReset');
-    if (fitBtn && !fitBtn._krwgBound) {
-      fitBtn._krwgBound = true;
-      fitBtn.addEventListener('click', function () { if (sim) sim.fit(); });
-    }
-    if (resetBtn && !resetBtn._krwgBound) {
-      resetBtn._krwgBound = true;
-      resetBtn.addEventListener('click', function () { if (sim) sim.reset(); });
-    }
   };
 
   window.krwgStopGraph = function () {
