@@ -2,6 +2,7 @@
   'use strict';
 
   window.KRWG_TELEGRAPH = window.KRWG_TELEGRAPH || [
+    'https://telegra.ph/THE-DESK-PROJECT-RU-11-02',
     'https://telegra.ph/Obnovlenie-sajta-10-12'
   ];
 

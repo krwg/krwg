@@ -24,13 +24,14 @@
 
   function buildGraph() {
     var nodes = [
-      { id: 'krwg', group: 'hub', hash: '#home', r: 7, labelKey: 'graph.node.krwg' },
-      { id: 'home', group: 'page', hash: '#home', r: 5, labelKey: 'graph.node.home' },
-      { id: 'bio', group: 'page', hash: '#bio', r: 5, labelKey: 'graph.node.bio' },
-      { id: 'pet', group: 'page', hash: '#pet', r: 5, labelKey: 'graph.node.pet' },
-      { id: 'posts', group: 'post', hash: '#posts', r: 5, labelKey: 'graph.node.posts' },
-      { id: 'contact', group: 'page', hash: '#contact', r: 5, labelKey: 'graph.node.contact' },
-      { id: 'graph', group: 'page', hash: '#graph', r: 5, labelKey: 'graph.node.graph' },
+      { id: 'krwg', group: 'hub', hash: '#home', r: 8, labelKey: 'graph.node.krwg' },
+      { id: 'home', group: 'page', hash: '#home', r: 5.2, labelKey: 'graph.node.home' },
+      { id: 'bio', group: 'page', hash: '#bio', r: 5.2, labelKey: 'graph.node.bio' },
+      { id: 'pet', group: 'page', hash: '#pet', r: 5.2, labelKey: 'graph.node.pet' },
+      { id: 'posts', group: 'post', hash: '#posts', r: 5.2, labelKey: 'graph.node.posts' },
+      { id: 'contact', group: 'page', hash: '#contact', r: 5.2, labelKey: 'graph.node.contact' },
+      { id: 'graph', group: 'page', hash: '#graph', r: 5.2, labelKey: 'graph.node.graph' },
+      { id: 'desk', group: 'project', hash: 'https://krwg.github.io/deskproject/', external: true, r: 6, labelKey: 'graph.node.desk' },
       { id: 'metrika', group: 'project', hash: 'https://github.com/krwg/metrika', external: true, r: 5.5, labelKey: 'graph.node.metrika' },
       { id: 'cultiva', group: 'project', hash: 'https://github.com/krwg/cultiva', external: true, r: 5.5, labelKey: 'graph.node.cultiva' },
       { id: 'blip', group: 'project', hash: 'https://github.com/krwg/blip', external: true, r: 5.5, labelKey: 'graph.node.blip' },
@@ -40,10 +41,11 @@
     ];
     var edges = [
       ['krwg', 'home'], ['krwg', 'bio'], ['krwg', 'pet'], ['krwg', 'posts'], ['krwg', 'contact'], ['krwg', 'graph'],
-      ['pet', 'metrika'], ['pet', 'cultiva'], ['pet', 'blip'],
-      ['bio', 'tiver'], ['bio', 'jkeep'], ['bio', 'cultiva'], ['bio', 'metrika'], ['bio', 'grbl'],
-      ['posts', 'krwg'], ['posts', 'metrika'], ['posts', 'grbl'],
-      ['graph', 'home'], ['graph', 'bio'], ['graph', 'pet'], ['graph', 'posts'], ['graph', 'contact']
+      ['pet', 'metrika'], ['pet', 'cultiva'], ['pet', 'blip'], ['pet', 'desk'],
+      ['bio', 'tiver'], ['bio', 'jkeep'], ['bio', 'cultiva'], ['bio', 'metrika'], ['bio', 'grbl'], ['bio', 'desk'],
+      ['posts', 'krwg'], ['posts', 'desk'], ['posts', 'metrika'],
+      ['home', 'desk'],
+      ['graph', 'home'], ['graph', 'bio'], ['graph', 'pet'], ['graph', 'posts'], ['graph', 'contact'], ['graph', 'desk']
     ];
     nodes.forEach(function (n) { n.label = t(n.labelKey); });
     return { nodes: nodes, edges: edges };
@@ -74,9 +76,9 @@
     hub.forEach(function (n) {
       placed.push(Object.assign({}, n, { x: 0, y: 0, vx: 0, vy: 0 }));
     });
-    placed = placed.concat(placeRing(pages, 118, -Math.PI / 2));
-    placed = placed.concat(placeRing(projects, 198, -Math.PI / 2 + 0.2));
-    placed = placed.concat(placeRing(notes, 255, Math.PI / 6));
+    placed = placed.concat(placeRing(pages, 128, -Math.PI / 2));
+    placed = placed.concat(placeRing(projects, 210, -Math.PI / 2 + 0.15));
+    placed = placed.concat(placeRing(notes, 268, Math.PI / 5));
     return placed;
   }
 
@@ -197,12 +199,10 @@
     }
 
     function drawLabel(n, active, linked) {
-      var show = active || linked || n.group === 'hub' || n.group === 'project' || n.group === 'note';
-      if (!show) return;
-      var fontPx = Math.max(10, 11 / state.cam.scale);
-      ctx.globalAlpha = active ? 1 : linked || n.group === 'hub' ? 0.92 : 0.72;
+      var fontPx = Math.max(10, (active ? 12 : 11) / state.cam.scale);
+      ctx.globalAlpha = active ? 1 : linked ? 0.95 : n.group === 'hub' ? 0.95 : 0.78;
       ctx.fillStyle = css('--fg');
-      ctx.font = fontPx + 'px "Space Mono", monospace';
+      ctx.font = (active ? '700 ' : '') + fontPx + 'px "Space Mono", monospace';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
       ctx.fillText(n.label, n.x, n.y + n.r + 8);
@@ -352,7 +352,9 @@
     return {
       start: function () { state.active = true; resize(); reload(); loop(); },
       stop: function () { state.active = false; if (state.raf) cancelAnimationFrame(state.raf); },
-      refreshLabels: refreshLabels
+      refreshLabels: refreshLabels,
+      fit: function () { fitView(); draw(); },
+      reset: function () { reload(); draw(); }
     };
   }
 
@@ -367,6 +369,16 @@
       sim.stop();
     }
     sim.start();
+    var fitBtn = document.getElementById('graphFit');
+    var resetBtn = document.getElementById('graphReset');
+    if (fitBtn && !fitBtn._krwgBound) {
+      fitBtn._krwgBound = true;
+      fitBtn.addEventListener('click', function () { if (sim) sim.fit(); });
+    }
+    if (resetBtn && !resetBtn._krwgBound) {
+      resetBtn._krwgBound = true;
+      resetBtn.addEventListener('click', function () { if (sim) sim.reset(); });
+    }
   };
 
   window.krwgStopGraph = function () {

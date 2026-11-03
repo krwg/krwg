@@ -96,7 +96,22 @@
     <span class="section-num">—</span>
     <h2 class="section-title" data-i18n="graph.title">Граф</h2>
   </div>
+  <p class="graph-lead reveal" data-i18n="graph.lead">Карта страницы — узлы, связи, бэклинки. Тяни узлы, двигай холст, зумь колесом, кликай чтобы открыть.</p>
   <div class="graph-shell reveal">
+    <div class="graph-toolbar">
+      <span class="graph-toolbar-label" data-i18n="graph.toolbar">Граф заметок</span>
+      <div class="graph-toolbar-actions">
+        <button type="button" class="nav-btn" id="graphFit" data-i18n="graph.fit">Вписать</button>
+        <button type="button" class="nav-btn" id="graphReset" data-i18n="graph.reset">Сброс</button>
+      </div>
+      <span class="graph-hint" data-i18n="graph.hint">drag · pan · zoom · click</span>
+    </div>
+    <div class="graph-legend" aria-hidden="true">
+      <span><i class="gl gl-hub"></i><span data-i18n="graph.legend.hub">krwg</span></span>
+      <span><i class="gl gl-page"></i><span data-i18n="graph.legend.page">Страницы</span></span>
+      <span><i class="gl gl-project"></i><span data-i18n="graph.legend.project">Проекты</span></span>
+      <span><i class="gl gl-note"></i><span data-i18n="graph.legend.note">Заметки</span></span>
+    </div>
     <div class="graph-canvas-wrap" id="graphCanvasWrap">
       <canvas id="graphCanvas" aria-label="krwg content graph"></canvas>
       <div class="graph-tooltip" id="graphTooltip"></div>
@@ -352,6 +367,32 @@
           GitHub
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+      </div>
+    </article>
+
+    <article class="project-card project-card--wa">
+      <span class="project-mark" aria-hidden="true">四</span>
+      <div class="project-card-inner">
+        <div class="project-head">
+          <span class="project-hanko project-hanko--live" data-i18n="pet.desk.hanko">現行</span>
+          <span class="project-status" data-i18n="pet.desk.status">Онлайн</span>
+        </div>
+        <h3 class="project-name">THE DESK PROJECT</h3>
+        <p class="project-reading" aria-hidden="true">デスク</p>
+        <p class="project-tagline" data-i18n="pet.desk.tag">Музей рабочего места</p>
+        <div class="project-desc">
+          <p data-i18n="pet.desk.1">THE DESK PROJECT — цифровой архив эволюции моего рабочего места: фотографии, таймлайн и интерактивный X-Ray макет стола.</p>
+          <p data-i18n="pet.desk.2">Визуальный язык: tech museum × Swiss modernism. Монохромные обложки на стене, цвет в лайтбоксе, орбита на wireframe.</p>
+          <p data-i18n="pet.desk.3">Личный журнал изменений — от ноутбука до полноценной станции — как публичный сайт, а не папка со снимками.</p>
+        </div>
+        <div class="project-meta">React · Three.js · Vite</div>
+        <div class="project-links">
+          <a href="https://krwg.github.io/deskproject/" class="project-link" target="_blank" rel="noopener">
+            Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://github.com/krwg/deskproject" class="project-link project-link--ghost" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </div>
     </article>
   </div>
